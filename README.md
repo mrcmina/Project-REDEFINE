@@ -6,6 +6,10 @@
 
 Updated on Dec 17 2019
 
+-----------  
+
+
+![](figures/projectlogo.jpg)
 
 -------
 
@@ -23,10 +27,6 @@ This repository contains
 
 The study area is located in the administrative region of the Centre-du-Québec. It is a rural landscape situated in Southern Quebec in which forest patches are intermixed with agricultural land and urban areas. 
 
------------  
-
-
-![](figures/projectlogo.jpg)
   
 -----------
 
