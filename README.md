@@ -23,7 +23,6 @@ The study area is located in the administrative region of the Centre-du-Québec 
 
 -----------  
 
-#### Figure 1
 
 ![](figures/projectlogo.jpg)
   
