@@ -1,0 +1,16 @@
+LandisData "PnET-Succession"
+
+PnET-Succession  	Value 
+Timestep            5 
+StartYear           2010 
+SeedingAlgorithm    WardSeedDispersal 
+
+EcoregionParameters    ./Input_Data/EcoregionsIC/EcoregionParameters.txt     <<contain link to climate files, change with CC scenario
+InitialCommunities     ./Input_Data/EcoregionsIC/initial-communities.txt
+InitialCommunitiesMap  ./Input_Data/EcoregionsIC/initial_communities.tif
+
+PnETGenericParameters    ./Input_Data/PnET/GenericPnETParameters.txt 
+PnETSpeciesParameters  	 ./Input_Data/PnET/PnETSpeciesParameters.txt  
+>>DisturbanceReductions  ./Input_Data/Disturbance/disturbance_reductions.txt 
+>>PNEToutputsites        ./Input_Data/OutputExtensions/PNEToutputsites.txt 
+

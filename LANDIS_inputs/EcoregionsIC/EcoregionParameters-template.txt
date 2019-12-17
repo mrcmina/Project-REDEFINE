@@ -1,0 +1,26 @@
+LandisData  EcoregionParameters				
+						
+EcoregionParameters	Latitude PrecLossFrac	SoilType	RootingDepth	LeakageFrac	SnowSublimFrac	climateFileName
+eco12	            46.2  		0.6	            SALO	    880	      	    1	        0.15	    ./Input_Data/Climate/cc-folder/clim_reg1.txt
+eco13	            46.0		0.6	            SLCL	    1000	        1	        0.15	    ./Input_Data/Climate/cc-folder/clim_reg1.txt
+eco14	            45.8		0.6	            LOAM	    750	   	        1			0.15		./Input_Data/Climate/cc-folder/clim_reg1.txt
+eco15	            46.1		0.6	            LOSA	    720	            1			0.15		./Input_Data/Climate/cc-folder/clim_reg1.txt
+eco23				46.2		0.6				SLCL		1000			1			0.15		./Input_Data/Climate/cc-folder/clim_reg2.txt
+eco24				45.7 		0.6				LOAM		650		    	1			0.15		./Input_Data/Climate/cc-folder/clim_reg2.txt
+eco25				46.2		0.6				LOSA		1000			1			0.15		./Input_Data/Climate/cc-folder/clim_reg2.txt
+eco32				45.9		0.6				SALO		590		    	1			0.15		./Input_Data/Climate/cc-folder/clim_reg3.txt
+eco33				45.9		0.6				SLCL		440			    1			0.15		./Input_Data/Climate/cc-folder/clim_reg3.txt
+eco34				45.8		0.6				LOAM		550			    1			0.15		./Input_Data/Climate/cc-folder/clim_reg3.txt
+eco42				46.2		0.6				SALO		1000			1			0.15		./Input_Data/Climate/cc-folder/clim_reg4.txt
+eco43				46.2		0.6				SLCL		640		    	1			0.15		./Input_Data/Climate/cc-folder/clim_reg4.txt
+eco45				46.2		0.6				LOSA		1000			1			0.15		./Input_Data/Climate/cc-folder/clim_reg4.txt
+eco52				46.3		0.6				SALO		950			    1			0.15		./Input_Data/Climate/cc-folder/clim_reg5.txt
+eco55				46.1		0.6				LOSA		1000			1			0.15		./Input_Data/Climate/cc-folder/clim_reg5.txt
+eco63				45.9		0.6				SLCL		1000			1			0.15		./Input_Data/Climate/cc-folder/clim_reg6.txt
+eco65				45.8		0.6				LOSA		1000			1			0.15		./Input_Data/Climate/cc-folder/clim_reg6.txt
+eco66				46.0		0.6				SAND		1000			1			0.15		./Input_Data/Climate/cc-folder/clim_reg6.txt
+eco72				46.0		0.6				SALO		590			    1			0.15		./Input_Data/Climate/cc-folder/clim_reg7.txt
+eco73				46.3		0.6				SLCL		730			    1			0.15		./Input_Data/Climate/cc-folder/clim_reg7.txt
+eco74				45.9		0.6				LOAM		650			    1			0.15		./Input_Data/Climate/cc-folder/clim_reg7.txt
+eco75				46.0		0.6				LOSA		1000			1			0.15		./Input_Data/Climate/cc-folder/clim_reg7.txt
+                                                                                                          

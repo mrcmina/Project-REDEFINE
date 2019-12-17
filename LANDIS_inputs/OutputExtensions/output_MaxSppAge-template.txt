@@ -1,0 +1,8 @@
+LandisData  "Output Max Species Age"
+
+Timestep   	10
+
+MapNames   	./Output/simulationname/MaxAge/{species}-{timestep}.img
+
+Species		all
+ 

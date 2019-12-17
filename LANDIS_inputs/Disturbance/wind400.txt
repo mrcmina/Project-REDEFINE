@@ -1,0 +1,44 @@
+LandisData "Base Wind" 
+Timestep 10
+
+>>Wind Event Parameters
+>> 	ecoregion	MaxSize	MeanSize	MinSize	WRP
+>>-----------------------------------------------
+	eco12		60		20			1		400
+	eco13		60		20			1		400
+	eco14		60		20			1		400
+	eco15		60		20			1		400
+	eco23		60		20			1		400
+	eco24		60		20			1		400
+	eco25		60		20			1		400
+	eco32		60		20			1		400
+	eco33		60		20			1		400
+	eco34		60		20			1		400
+	eco42		60		20			1		400
+	eco43		60		20			1		400
+	eco45		60		20			1		400
+	eco52		60		20			1		400
+	eco55		60		20			1		400
+	eco63		60		20			1		400
+	eco65		60		20			1		400
+	eco66		60		20			1		400
+	eco72		60		20			1		400
+	eco73		60		20			1		400
+	eco74		60		20			1		400
+	eco75		60		20			1		400
+
+
+WindSeverities 
+>> 				Cohort_Age 			Mortality 
+>>Severity   	% of longevity		Probability 
+>>--------------------------------------------- 
+	5  			0% to 20%			0.05		<<most severe
+	4  			20% to 50%			0.1 
+	3  			50% to 70%			0.3 
+	2  			70% to 85%			0.5 
+	1  			85% to 100%			0.65 		<<least severe
+	
+	
+>>Outputs
+MapNames	output/wind/severity-{timestep}.img 
+LogFile 	output/wind/log.csv 

@@ -1,0 +1,78 @@
+﻿LandisData  "Biomass Harvest"
+
+Timestep    5
+
+ManagementAreas ./Input_Data/Management/managementAreas.tif    <<map with 4 mgmtAreas (01234)
+Stands      	./Input_Data/Management/standMap.tif        <<stands are 1ha cells
+
+
+>>------------------------------------------------------------------------------------------------------------
+>>                      				PRESCRIPTIONS 
+>>------------------------------------------------------------------------------------------------------------
+	
+>>----------------------------------------
+>> DISTURBANCE SCENARIOS  
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  
+Prescription DisturbanceHigh
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+>>CohortsRemoved derived from disturbances scores (Matthews et al 2011)
+>>Weigthed species vulnerability to: diseases, insects, pests, browsing, invasive, ice, wind, fire, pollution
+
+    StandRanking    Random
+
+	SiteSelection CompleteStandSpread 1 30 <<ha
+	
+	CohortsRemoved SpeciesList
+	>> Species Selection
+	>> ------- ---------
+	abiebals	1-200	(93%)
+	acerrubr	1-235	(80%)
+	acersacc	1-300	(76%)
+	betualle	1-300	(89%)
+	betupapy	1-150	(99%)
+	betupopu	1-150	(98%)
+	fagugran	1-300	(83%)
+	fraxamer	1-300	(80%)
+	larilari	1-180	(76%)
+	piceabie  	1-350	(61%)
+	piceglau	1-300	(72%)
+	picemari	1-215	(93%)
+	picerube	1-350	(83%)
+	pinuresi	1-250	(60%)
+	pinustro	1-400	(89%)
+	popugran	1-110	(73%)
+	poputrem	1-110	(93%)
+	thujocci	1-800	(66%)
+	tsugcana	1-500	(69%)
+	
+
+>>--------------------------------------------------------------------
+>>                      HARVESTING IMPLEMENTATION 
+>>--------------------------------------------------------------------
+>>	MgtArea	Description
+>> ------------------------------------
+>>	1		Private forests
+>>	2		Sugarbushes 
+>>	3		Public forests under management 
+>>  4		Public reserves and parks - no management
+
+
+HarvestImplementations
+>> Harvest Area = (timestep)/(rotation period)*100 = percent of landscape to be harvested per timestep (e.g., 10/50 * 100 = 20%)
+
+>>  Mgmt Area   Prescription    Harvest Area    Begin Time  End Time
+>>  ---------   ------------    ------------    ----------  --------
+	1			DisturbanceHigh	  5%			 0	
+	2			DisturbanceHigh	  5%			 0	
+	3			DisturbanceHigh	  5%			 0	
+	4			DisturbanceHigh	  5%			 0	
+	
+	
+>>-----------------------------------------------------------------
+>> OUTPUTS
+
+PrescriptionMaps    ./Output/simulationname/harvest/prescripts-{timestep}.img
+BiomassMaps			./Output/simulationname/harvest/biomass-removed-{timestep}.img
+EventLog            ./Output/simulationname/harvest/event-log.csv
+SummaryLog	    	./Output/simulationname/harvest/summary-log.csv

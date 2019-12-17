@@ -1,0 +1,36 @@
+LandisData  "Output Biomass Reclass"
+
+Timestep   10
+
+ReclassMaps
+
+>> Map Name    Forest Type    Species
+>> --------    -------------  -------
+   reclass1 -> BorealCon      abiebals piceglau picemari picerube
+               NorthHardwood  acerrubr acersacc fagugran fraxamer betualle     
+               AspenBirch     betupapy betupopu popugran poputrem
+               Pine           pinuresi pinustro 
+               OtherConif     larilari thujocci tsugcana
+			   NorSpruce	  piceabie
+
+   reclass2 -> Broadleaves	  acerrubr acersacc betualle betupapy betupopu popugran poputrem fagugran fraxamer 
+			   Conifers		  abiebals piceglau picemari picerube thujocci tsugcana larilari piceabie pinuresi pinustro        
+
+   reclass3 -> Fir            abiebals 
+               Maples         acerrubr acersacc
+               TolerantBR	  fagugran fraxamer betualle 
+			   IntolerantBR	  betupapy betupopu popugran poputrem
+               Spruces        piceabie piceglau picemari picerube
+			   Pines          pinuresi pinustro
+               OtherCon       larilari thujocci tsugcana        
+
+   reclass4 -> Maples         acerrubr acersacc
+               AspenBirch     betupapy betupopu popugran poputrem    
+               BeechAsh       fagugran fraxamer   
+			   FirYbirch	  abiebals betualle
+               NativeSpruces  piceglau picemari picerube
+			   NorSpruce      piceabie 			   
+               Pines          pinuresi pinustro             
+               OtherConif     larilari thujocci tsugcana             
+
+MapFileNames   ./Output/simulationname/BiomassReclass/AGBiomassFType-{reclass-map-name}-{timestep}.img

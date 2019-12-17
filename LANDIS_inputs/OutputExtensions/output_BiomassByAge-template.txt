@@ -1,0 +1,26 @@
+LandisData  "Output Biomass-by-Age"
+
+Timestep   10
+
+MapNames   ./Output/simulationname/Biomass-by-age/{species}-{ageclass}-{timestep}.img
+
+Species		abiebals 	ageclass1(<15) ageclass2(>25)   << ageclass2 is biomass of species above sex maturity  
+            acerrubr    ageclass1(<15) ageclass2(>5)
+            acersacc    ageclass1(<15) ageclass2(>40)
+            betualle    ageclass1(<15) ageclass2(>40)
+            betupapy    ageclass1(<15) ageclass2(>40)
+            betupopu    ageclass1(<15) ageclass2(>40)
+            fagugran    ageclass1(<15) ageclass2(>10)
+            fraxamer    ageclass1(<15) ageclass2(>30)
+            larilari    ageclass1(<15) ageclass2(>35)
+            piceabie    ageclass1(<15) ageclass2(>40)
+            piceglau    ageclass1(<15) ageclass2(>25)
+            picemari    ageclass1(<15) ageclass2(>30)
+            picerube    ageclass1(<15) ageclass2(>15)
+            pinuresi    ageclass1(<15) ageclass2(>15)
+            pinustro    ageclass1(<15) ageclass2(>25)
+            popugran    ageclass1(<15) ageclass2(>20)
+            poputrem    ageclass1(<15) ageclass2(>20)
+            thujocci    ageclass1(<15) ageclass2(>30)
+            tsugcana    ageclass1(<15) ageclass2(>20)
+			
