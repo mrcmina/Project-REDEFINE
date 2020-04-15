@@ -1,0 +1,3 @@
+coneforWin64.exe -nodeFile NodeFD_graph00.txt -conFile LinkFD_graph00.txt -t prob -PC onlyoverall
+coneforWin64.exe -nodeFile NodeFD_graph01.txt -conFile LinkFD_graph01.txt -t prob notall -PC onlyoverall
+coneforWin64.exe -nodeFile NodeFD_graph01.txt -conFile LinkFD_graph01.txt -t prob notall -PC -BCPC

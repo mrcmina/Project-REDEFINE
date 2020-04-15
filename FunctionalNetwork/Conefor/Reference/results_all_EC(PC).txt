@@ -1,0 +1,2 @@
+Prefix	Distance	Probability	EC(PC)	
+NA	0	0	400.922	
