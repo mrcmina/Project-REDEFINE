@@ -23,7 +23,7 @@ tsugcana				0.95  	170		100	     0.06		0.024	 0.25		105	145		0		0.3333	5.3		21.5
 >>KWdLit default=0.1.  Use values from Mattson 1987 Decomposition of woody debris in a regenerating, clear-cut forest in the Southern Appalachians when available.  Otherwise: 0.075 for hardwoods and 0.125 for softwoods
 >>FolLignin default = 0.02; Range in Aber and Mellilo (1982 Can J Bot 60:2267) = 0-0.25
 >>Picea abies from literature and PnET User Guide (Marco Mina 26/11/2018, see Calibration_piceabie.xls)
->>Version Tune11 (15.04.2019)
+>>Version Tune12 (16.04.2019)
 
 
 >>Southern species(New England - Duveneck&Thompson 2019 Glob Env Change)
