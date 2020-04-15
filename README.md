@@ -1,10 +1,9 @@
-# REDEFINE_project
+# REDEFiNE - REsilience Diversity landscapE Forest NEtwork 
 
+**Project Aim**: "Combine dynamic landscape models with network theory for evaluating resilience to global changes in fragmented forested landscapes".
+**Participants**: Marco Mina, Núria Aquilué, Matthew Duveneck, Marie-Josée Fortin, and Christian Messier. 
+**Funding**: Canada Research Chair in Forest Resilience to Global Change (*C. Messier, N. Aquilué, M. Mina*); Swiss National Science Foundation (Postdoc.Mobility fellowship, *M.Mina*)
 
-**Project Aim**: "Combine dynamic landscape models with network theory for evaluating resilience to global changes in frangmented forested landscapes".
-**Participants**: Marco Mina, Núria Aquilué, Matthew Duveneck, Marie-Josée Fortin, and Christian Messier. Repository maintained by Marco Mina
-
-Updated on Dec 17 2019
 
 -----------  
 
@@ -17,8 +16,10 @@ Updated on Dec 17 2019
 ### General description
 
 This repository contains 
- - LANDIS-II/PnET-Succession input files and documentation for running the model in the Centre-du-Quebec 
- - R scripts to share  
+ - LANDIS-II/PnET-Succession input files and documentation for running the model in the Centre-du-Quebec
+ - Installers of LANDIS-II and its extension used in studies and papers
+ - Tools and scripts (in R language) to build and analyze forest landscapes as a functional network
+ - Scripts and data to share
 
 -----------
 
@@ -31,3 +32,5 @@ The study area is located in the administrative region of the Centre-du-Québec.
 -----------
 
 ![](figures/cdq_landscape.jpg)
+
+Repository maintained by **Marco Mina**  `mina.marco[at]courrier.uqam.ca`
