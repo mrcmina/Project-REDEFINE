@@ -259,7 +259,7 @@ Prescription RemovalCut_130_Mix             <<Second shelterwood cut following S
     StandRanking  MaxCohortAge	 <<  thin oldest stands first 
 	
 	MinimumAge	120                 
-	MaximumAge	140
+	MaximumAge	150
 	MinimumTimeSinceLastHarvest 15  
 	
  	ForestTypeTable    << Mixed stands                  
@@ -366,7 +366,8 @@ Prescription SelHarv_Decid           << SelectionCutting (Coupe de Jardinage) in
     thujocci    10-50 (20%)  51-80 (30%)  81-800 (35%)
     tsugcana    10-50 (20%)  51-80 (30%)  81-500 (35%)
 
->>    MultipleRepeat 15         << this repeats the intervention each 15y ON THE SAME CELLS ranked only once. 
+>>    MultipleRepeat 15         
+
    
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 Prescription SelHarv_SugarBush        << Modified SelectionCutting (Coupe de Jardinage) in sugar maple stands for syrup production  
@@ -412,10 +413,10 @@ Prescription SelHarv_SugarBush        << Modified SelectionCutting (Coupe de Jar
 
 
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  
-Prescription DisturbanceLow
+Prescription BackgroundDist
 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
->>Random Cohorts mortality derived from disturbances scores (Matthews et al 2011, Brandt et al 2017)
->>Weigthed species vulnerability to: diseases, insects, pests, browsing, invasive, ice, wind, fire, pollution
+>>Random cohort mortality derived from disturbances scores reflecting the aveage vulnerability of tree species 
+>>to an ensenble of disturbance factors(Matthews et al 2011, Brandt et al 2017)
 
     StandRanking    Random
 
@@ -424,26 +425,27 @@ Prescription DisturbanceLow
 	CohortsRemoved SpeciesList
 	>> Species Selection
 	>> ------- ---------
-	abiebals	1-200	(53%)        
-	acerrubr	1-235	(40%)
-	acersacc	1-300	(36%)
-	betualle	1-300	(49%)
-	betupapy	1-150	(60%)
-	betupopu	1-150	(58%)
-	fagugran	1-300	(43%)
-	fraxamer	1-300	(40%)
-	larilari	1-180	(36%)
-	piceabie  	1-350	(21%)
-	piceglau	1-300	(32%)
-	picemari	1-215	(53%)
-	picerube	1-350	(43%)
-	pinuresi	1-250	(20%)
-	pinustro	1-400	(49%)
-	popugran	1-110	(33%)
-	poputrem	1-110	(53%)
-	thujocci	1-800	(26%)
-	tsugcana	1-500	(29%)
+	abiebals	1-999	(53%)        
+	acerrubr	1-999	(40%)
+	acersacc	1-999	(36%)
+	betualle	1-999	(49%)
+	betupapy	1-999	(60%)
+	betupopu	1-999	(58%)
+	fagugran	1-999	(43%)
+	fraxamer	1-999	(40%)
+	larilari	1-999	(36%)
+	piceabie  	1-999	(21%)
+	piceglau	1-999	(32%)
+	picemari	1-999	(53%)
+	picerube	1-999	(43%)
+	pinuresi	1-999	(20%)
+	pinustro	1-999	(49%)
+	popugran	1-999	(33%)
+	poputrem	1-999	(53%)
+	thujocci	1-999	(26%)
+	tsugcana	1-999	(29%)
 	
+
 
 >>--------------------------------------------------------------------
 >>                      HARVESTING IMPLEMENTATION 
@@ -463,31 +465,30 @@ HarvestImplementations
 	1			Thin_90-100_Mix			2.7%			0
 	1			SeedCut_115_Mix			0.5%			0
 	1			RemovalCut_130_Mix		0.5%			0
-	1			SelHarv_Decid	  		4.1%			0			
-	1			DisturbanceLow	  		5%			 	0	
+	1			SelHarv_Decid	  		4.1%			0	
+	1			BackgroundDist			5.0%			0
 	2			Thin_20-30_Plant		2.1%			0	            << reduced intensity by 1/3 to give priority to Sugarbush       
 	2			CPRS_60_Plant			0.2%			0               << reduced intensity by 1/3 to give priority to Sugarbush 
 	2			Thin_90-100_Mix			1.8%			0               << reduced intensity by 1/3 to give priority to Sugarbush 
 	2			SeedCut_115_Mix			0.3%			0               << reduced intensity by 1/3 to give priority to Sugarbush 
 	2			RemovalCut_130_Mix		0.3%			0	            << reduced intensity by 1/3 to give priority to Sugarbush 
 	2			SelHarv_SugarBush  		4.1%			0		
-	2			DisturbanceLow	  		5%			 	0	
+	2			BackgroundDist			5.0%			0
 	3			Thin_20-30_Plant		3.2%			0	                    
 	3			CPRS_60_Plant			0.3%			0
 	3			Thin_90-100_Mix			2.7%			0
 	3			SeedCut_115_Mix			0.5%			0
 	3			RemovalCut_130_Mix		0.5%			0
-	3			SelHarv_Decid	  		4.1%			0				
-	3			DisturbanceLow	  		5%			 	0	
+	3			SelHarv_Decid	  		4.1%			0
+	3			BackgroundDist			5.0%			0	
 >>	4			unharvested	
-	4			DisturbanceLow	  		5%			 	0	
-
+	4			BackgroundDist			5.0%			0
 	
 	
 >>-----------------------------------------------------------------
 >> OUTPUTS
 
-PrescriptionMaps    ./Output/simulationname/harvest/prescripts-{timestep}.img
-BiomassMaps			./Output/simulationname/harvest/biomass-removed-{timestep}.img
-EventLog            ./Output/simulationname/harvest/event-log.csv
-SummaryLog	    	./Output/simulationname/harvest/summary-log.csv
+PrescriptionMaps    ./Output/harvest/prescripts-{timestep}.img
+BiomassMaps			./Output/harvest/biomass-removed-{timestep}.img
+EventLog            ./Output/harvest/event-log.csv
+SummaryLog	    	./Output/harvest/summary-log.csv
