@@ -1,0 +1,85 @@
+LandisData "BDA Agent"
+
+BDAAgentName	EmeraldAshBorer								
+BDPCalibrator	1	 						<<parameter 'a' in BDP equation(2) user Guide. Default 1	
+SRDMode			mean 						<<max or mean, SRD score based on the mean or max SRD								
+StartYear		50		    				<<the first year when an outbreak can occur				
+EndYear   		120								
+
+>>----------------------------------
+>> BDA DISTURBANCE REGIME PARAMETERS
+>>----------------------------------
+
+>>-------- Regional Outbreak Inputs -------------
+OutbreakPattern			CyclicNormal		<<CyclicNormal or CyclicUniform
+Mean					1					<<mean of normal distribution
+StDev					0.1					<<sd of normal distribution
+TimeSinceLastEpidemic	30					<<years
+TemporalType 			variablepulse		<<pulse or variablepulse
+MinROS					3 					<<if >0, epidemics occurs at every BDA time step
+MaxROS					3					<<max intensity of regional outbreak. 1 light, 3 intense
+	
+	
+>>-------- Dispersal Inputs ----------------------									
+Dispersal					no			<<yes or no  							
+DispersalRate				240			<<meters/year 30000x30000 m in approx 20 years 							
+EpidemicThresh				0.0001		<< to calibrate, compare how rapidly it spreads accross the landscape"							
+InitialEpicenterNum			1								
+OutbreakEpicenterCoeff		0.01		
+OutbreakEpicenterThresh 	0.0						
+SeedEpicenter				no			<<yes or no							
+SeedEpicenterCoeff			0.5			<< param. "c",eq.3(user guide);				
+DispersalTemplate			MaxRadius	<<MaxRadius, 4N,8N, 12N, or 24N"							
+
+
+>>-------- Neighborhood Resource Inputs ---------------------- 									
+NeighborFlag	no 			<<yes or no (determines whether NRD is used in calculating BDP)					
+NeighborSpeedUp	none		<<none, 2x, 3x, or 4x"							
+NeighborRadius	1			<<meters							
+NeighborShape	uniform		<<uniform, linear, or gaussian; weight of neighborhood cells vs. distance to site					
+NeighborWeight	1			<<0.01-100; parameter NW in eq.2; 0.01:NRD weight=0% of SRD,1:50%,10:91%,100=100% of SRD						
+
+
+>>-------- Intensity Class Thresholds ---------------------- 
+IntensityClass2_BDP 	0.25
+IntensityClass3_BDP 	0.50 	
+
+
+>>Ecoregion Modifiers
+
+>>DisturbanceModifiers                   <<influence of another disturbance type on SRD
+>>SRD Modifer	Duration	Type
+>>0.33			20			SelHarv_Decid  		
+
+   
+>>-------------------------
+>> BDA SEVERITY PARAMETERS
+>>--------------------------
+								
+BDASpeciesParameters										
+>>         -------------Host Value--------------  -------------Susceptibility-------------
+>>Species  MinorHost    2ndHost      MajorHost    Class3        Class2        Class1	    SpecialDeadFuel
+>>Name     Age SRDProb  Age SRDProb  Age SRDProb  Age MortProb  Age MortProb  Age MortProb  Conifer?
+>> ---------------------------------------------------------------------------------------------
+fraxamer   1   1.0		1   1.0	     1   1.0	  5   0.50		20   0.50	  50   0.50		no			
+
+ 									
+IgnoredSpecies									
+abiebals									
+acerrubr
+acersacc
+betualle
+betupapy
+betupopu
+fagugran
+larilari
+piceabie
+piceglau
+picemari
+picerube
+pinuresi
+pinustro
+popugran
+poputrem
+thujocci
+tsugcana

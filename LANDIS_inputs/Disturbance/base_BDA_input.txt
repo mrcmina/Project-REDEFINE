@@ -1,0 +1,12 @@
+LandisData "Base BDA"
+
+Timestep	10
+
+MapNames		./Output/bda/{agentName}_{timestep}.img
+SRDMapNames		./Output/bda/{agentName}_SRD_{timestep}.img
+NRDMapNames		./Output/bda/{agentName}_NRD_{timestep}.img
+BDPMapNames     ./Output/bda/{agentName}_BDP_{timestep}.img
+LogFile			./Output/bda/bda-log.csv
+
+BDAInputFiles	./Input_Data/Disturbance/BDA_EAB.txt
+>>./Input_Data/Disturbance/BDA_ALB.txt
