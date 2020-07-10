@@ -8,5 +8,3 @@ The files are structured in folders and template files made to be run through in
 For any question or additional info please contact mina.marco[at]courrier.uqam.ca
 
 
-### Updated on Apr 15 2020
-
