@@ -17,8 +17,8 @@
 
 This repository contains 
  - LANDIS-II/PnET-Succession input files and documentation for running the model in the Centre-du-Quebec
- - Installers of LANDIS-II and its extension used in studies and papers
- - Tools and scripts (in R language) to build and analyze forest landscapes as a functional network
+ - Installers of LANDIS-II and its extension used in studies and as supporting dato to published papers
+ - Tools and R scripts to build and analyze forest landscapes as a functional complex network
  - Scripts and data to share
 
 -----------
@@ -33,4 +33,4 @@ The study area is located in the administrative region of the Centre-du-Québec.
 
 ![](figures/cdq_landscape.jpg)
 
-Repository maintained by **Marco Mina**  `mina.marco[at]courrier.uqam.ca`
+Repository maintained by **Marco Mina**  `marco.mina[at]eurac.edu`

@@ -1,0 +1,34 @@
+LandisData Scenario
+
+>>Example for scenarios combination as follow:
+>>		Management: FDN
+>> 		Climate: 	rcp85 with drought signal
+>>		Insects: 	Upcoming Insects
+
+Duration 	190
+Species         ./Input_Data/Species/speciesParameters_35spQC.txt
+Ecoregions      ./Input_Data/EcoregionsIC/EcoregionFile.txt
+EcoregionsMap   ./Input_Data/EcoregionsIC/ecoregions.tif 
+
+CellLength 100 << meters
+
+>> Succession Extension     Initialization File
+>> --------------------     -------------------
+   "PnET-Succession"         ./Input_Data/PnET/PnET_succession.txt 
+
+>> Disturbance Extensions   Initialization File
+>> ----------------------   -------------------
+   "Biomass Harvest"         ./Input_Data/Management/FDN-dis.txt           <<FDN prescriptions plus pathogen diseases combined with UPCOMING insects
+   "Base BDA"		         ./Input_Data/Disturbance/base_BDA_input.txt
+>> "Base Wind"               ./Input_Data/disturbance/wind400.txt
+
+
+>> Other Extensions         		Initialization File
+>> ----------------         		-------------------
+     "Output-PnET"              		./Input_Data/OutputExtensions/biomass.outputPnET.txt 
+	 "Output Biomass Reclass"   		./Input_Data/OutputExtensions/output_BiomassReclass.txt
+	 "Output Biomass-by-Age"   	        ./Input_Data/OutputExtensions/output_BiomassByAge.txt 
+	 "Output Cohort Statistics"			./Input_Data/OutputExtensions/output_CohortStats.txt    
+
+
+

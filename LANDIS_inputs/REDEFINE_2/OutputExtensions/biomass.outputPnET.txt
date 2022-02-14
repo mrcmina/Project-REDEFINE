@@ -1,0 +1,34 @@
+LandisData "Output-PnET"
+
+Timestep  10
+Species All
+
+>>------- BIOMASS -------------------------------------------------------------------
+AbovegroundBiomass 		./Output/agbiomass/{species}/AGBiomass{timestep}.img         	<<aboveground wood and foliage
+Biomass 				./Output/biomass/{species}/Biomass{timestep}.img             	<<sum wood and roots, but not foliage 
+>>BelowgroundBiomass    ./Output/bgbiomass/{species}/BGBiomass{timestep}.img			<<roots only / not working by species!!
+>>WoodySenescence		./Output/Senescence/{species}/WoodSenescence{timestep}.img   	<<woody biomass added to woody dead pool / no species-specific outputs (as of Nov 2020)
+>>FoliageSenescence		./Output/Senescence/{species}/FolSenescence{timestep}.img   	<<foliage biomass added to litter dead pool / no species-specific outputs (as of Nov 2020)
+>>WoodyDebris 			./Output/Debris/{species}/WoodyDebris{timestep}.img   			<<woody debris (dead stem biomass)
+>>Litter 				./Output/Debris/{species}/Litter{timestep}.img     				<<non-woody debris (dead foliage)
+
+>>------- COHORTS AND AGE ------------------------------------------------------------
+CohortsPerSpecies 			./Output/CohortsPerspecies/{species}/cohorts_{timestep}.img
+AgeDistribution 			./Output/AgeDist/Age_{timestep}.img
+Establishment 		    	./Output/Establishment/{species}/Est_{timestep}.img
+>>EstablishmentProbability	./Output/Establishment/{species}/EstProb_{timestep}.img     <<not working after year0, crashes PnET-Succession
+
+>>------- PHOTOSYNTHESIS ------------------------------------------------------------
+LeafAreaIndex 			./Output/LAI/LAI{timestep}.img                                         <<for all spp combined
+MonthlyNetPsn 			./Output/MonthlyNetPsn/{species}/MonthlyNetPsn{timestep}.img           <<no species-specific outputs (as of Nov 2020)
+>>AnnualPsn 		    ./Output/AnnualPsn/{species}/AnnualPsn{timestep}.img                   <<no species-specific outputs (as of Nov 2020)
+>>MonthlyFolResp 		./Output/MonthlyFolResp/{species}/MonthlyFolResp{timestep}.img         <<no species-specific outputs (as of Nov 2020)
+>>MonthlyGrossPsn 		./Output/MonthlyGrossPsn/{species}/MonthlyGrossPsn{timestep}.img       <<no species-specific outputs (as of Nov 2020)
+>>MonthlyMaintResp 		./Output/MonthlyMaintResp/{species}/MonthlyMaintResp{timestep}.img     <<no species-specific outputs (as of Nov 2020)
+>>Water 				./Output/SoilWater/water-{timestep}.img
+>>SubCanopyPAR 			./Output/SubCanopyPar/SCpar-{timestep}.img
+
+>>------- TABLES -------------------------------------------------------------------
+CohortBalance 		    ./Output/TotalCohorts.txt
+MortalityTable			./Output/MortalityTable.txt
+EstablishmentTable      ./Output/Establishment/EstablishTable.txt 

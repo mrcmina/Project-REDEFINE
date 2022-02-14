@@ -1,0 +1,32 @@
+LandisData "Base BDA"
+
+Timestep	10
+
+
+>> ---------------------------------------------------------------------------
+>> OUTPUTS
+>>----------------------------------------------------------------------------
+MapNames		./Output/bda/{agentName}_{timestep}.img       <<Severity map; 0=non-active site, 1=active but undisturbed site, 2=severity 1, 3=severity 2, 4=severity 3
+SRDMapNames		./Output/bda/{agentName}_SRD_{timestep}.img   <<Site resource dominance map [0-100]
+BDPMapNames     ./Output/bda/{agentName}_BDP_{timestep}.img   <<Biological Disturbance Probability map [0-100]
+>>NRDMapNames	./Output/bda/{agentName}_NRD_{timestep}.img   <<Site neighborhood susceptibility map [0-100]
+LogFile			./Output/bda/bda-log.csv
+
+
+>>-----------------
+>> REQUIRED INPUTS
+>>------------------
+>>Scenario INSECT-PRESENT scenario
+>>BDAInputFiles	./Input_Data/Disturbance/BDA_EAB-med.txt			<<Emerald ash borer, medium intensity
+>>				./Input_Data/Disturbance/BDA_GM-low.txt				<<Gypsy moth, low intensity
+>>				./Input_Data/Disturbance/BDA_SBW.txt                <<Gypsy moth, typical intensity
+
+>>Scenario INSECT-UPCOMING scenario
+BDAInputFiles		./Input_Data/Disturbance/BDA_EAB-med.txt    <<Emerald ash borer, medium intensity
+					./Input_Data/Disturbance/BDA_EAB-high.txt   <<Emerald ash borer, high intensity
+					./Input_Data/Disturbance/BDA_GM-low.txt     <<Gypsy moth, low intensity
+					./Input_Data/Disturbance/BDA_GM-high.txt    <<Gypsy moth, high intensity
+					./Input_Data/Disturbance/BDA_SBW-high.txt   <<Spruce budworm, high intensity
+					./Input_Data/Disturbance/BDA_ALB.txt        <<Asian longhornbeetle 
+					./Input_Data/Disturbance/BDA_HWA.txt        <<Hemlock woolly adelgid 
+					./Input_Data/Disturbance/BDA_MPB.txt        <<Mountain pine beetle 

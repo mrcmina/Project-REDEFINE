@@ -1,0 +1,104 @@
+LandisData "BDA Agent"
+
+BDAAgentName	HemlockWoollyAdelgid													
+BDPCalibrator	1													
+SRDMode			mean													
+StartYear		30   	    				<<the first year when an outbreak can occur	(2040)			
+EndYear 	  	140							<<the last year when an outbreak can occur	(until 2150)							
+
+>>----------------------------------
+>> BDA DISTURBANCE REGIME PARAMETERS
+>>----------------------------------
+
+>>-------- Regional Outbreak Inputs -------------
+OutbreakPattern			CyclicNormal	<<CyclicNormal or CyclicUniform
+Mean					1				<<mean of normal distribution (1= outbreaks occur at each time step)
+StDev					0.1				<<sd of normal distribution
+TimeSinceLastEpidemic	0				<<years
+TemporalType 			pulse			<<pulse or variablepulse (must be set to 'pulse' if StartYear is used)
+MinROS					0               <<outbreak activity in each time step. 0 no outbreak, 3 intense (must be set to '0' if StartYear is used)
+MaxROS					3               <<max intensity of regional outbreak. 1 light, 3 intense
+
+
+>>-------- Dispersal Inputs ----------------------														
+Dispersal				yes			<<yes(asynchronous) or no(synchronous)												
+DispersalRate			10000		<<meters/year | Spread rate eastern US 7.6-20.4 km/yr (Trotter et al 2013) 							
+EpidemicThresh			0.0001													
+InitialEpicenterNum		2													
+OutbreakEpicenterCoeff	0.1	    <<decreasing this param increases # of new epicenters
+OutbreakEpicenterThresh 0.0												
+SeedEpicenter			yes			<<yes or no												
+SeedEpicenterCoeff		0.5													
+DispersalTemplate		MaxRadius	<<MaxRadius, 4N,8N, 12N, or 24N"	
+
+
+>>-------- Neighborhood Resource Inputs ---------------------- 														
+NeighborFlag		yes			<<yes/no (whether NRD is used in calculating BDP); yes from Gustafson et al 2017													
+NeighborSpeedUp		none		<<none, 2x, 3x, or 4x
+NeighborRadius		100			<<metres; the radius of the neighborhood influence
+NeighborShape		uniform		<<uniform, linear, or gaussian											
+NeighborWeight		1			<<0.01-100; parameter NW in eq.2; 0.01:NRD weight=0% of SRD,1:50%,10:91%,100=100% of SRD										
+
+
+>>-------- Intensity Class Thresholds ---------------------- 
+>>IntensityClass1_BDP 	0   -- Hardwired value
+IntensityClass2_BDP 	0.25
+IntensityClass3_BDP 	0.50  
+
+>>Ecoregion Modifiers
+>>none
+
+DisturbanceModifiers                   <<influence of another disturbance type on SRD
+>>SRD Modifer	Duration	Type
+  -0.33			20			BackgroundDist  <<reduce SRD by 1/3 after background disturbance prescription simulated with Biomass Harvest  		
+  -0.33			20			BackgroundDist2  <<reduce SRD by 1/3 after background disturbance prescription simulated with Biomass Harvest 
+
+
+>>-------------------------
+>> BDA SEVERITY PARAMETERS
+>>--------------------------
+
+BDASpeciesParameters
+>>MortProb: HWA attacks all  size classes with same crown damage and mortality (Orwig et al 2002 J Biogeogr)
+>>MortProb lowered from 1.0 (Gustafson et al 2017) to 0.8 to simulate a less abrupt decline 											                                        														
+>>         -------------Host Value--------------  -------------Susceptibility--------------
+>>Species  MinorHost    2ndHost      MajorHost    Class3        Class2        Class1	    SpecialDeadFuel
+>>Name     Age SRDProb  Age SRDProb  Age SRDProb  Age MortProb  Age MortProb  Age MortProb  Conifer?
+>> ----------------------------------------------------------------------------------------					
+tsugcana   10	0.25	40  0.5		 40   1.0	  10  0.8		40  0.8		  40  0.8		no	<<primary host	
+													
+IgnoredSpecies															
+abiebals
+acerrubr
+acersacc
+acersach
+betualle
+betulent
+betupapy
+betupopu
+carycord
+caryglab
+fagugran
+juglnigr
+fraxamer
+larilari
+lirituli
+piceabie
+piceglau
+picemari
+picerube
+pinuresi
+pinurigi
+pinustro
+pinutaed
+popugran
+poputrem
+prunsero
+queralba
+quercocc
+quermacr
+querrubr
+quervelu
+thujocci
+tiliamer
+ulmuamer

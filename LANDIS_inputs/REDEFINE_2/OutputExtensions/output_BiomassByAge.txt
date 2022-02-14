@@ -1,0 +1,43 @@
+LandisData  "Output Biomass-by-Age"
+
+Timestep   10
+
+MapNames   ./Output/Biomass-by-age/{species}/{ageclass}-{timestep}.img
+
+Species		abiebals 	below20(<20) sexmaturity(>25)
+            acerrubr    below20(<20) sexmaturity(>5) 
+            acersacc    below20(<20) sexmaturity(>40)
+            acersach	below20(<20) sexmaturity(>11)
+			betualle    below20(<20) sexmaturity(>40)
+            betulent	below20(<20) sexmaturity(>40)
+			betupapy    below20(<20) sexmaturity(>40)
+            betupopu    below20(<20) sexmaturity(>40)
+            carycord    below20(<20) sexmaturity(>30)
+			caryglab    below20(<20) sexmaturity(>30)
+			fagugran    below20(<20) sexmaturity(>10)
+            fraxamer    below20(<20) sexmaturity(>30)
+			juglnigr    below20(<20) sexmaturity(>30)
+            larilari    below20(<20) sexmaturity(>35)
+            lirituli    below20(<20) sexmaturity(>20)
+			piceabie    below20(<20) sexmaturity(>40)
+            piceglau    below20(<20) sexmaturity(>25)
+            picemari    below20(<20) sexmaturity(>30)
+            picerube    below20(<20) sexmaturity(>15)
+            pinuresi    below20(<20) sexmaturity(>15)
+            pinurigi    below20(<20) sexmaturity(>10)
+			pinustro    below20(<20) sexmaturity(>25)
+            pinutaed    below20(<20) sexmaturity(>25)
+			popugran    below20(<20) sexmaturity(>20)
+            poputrem    below20(<20) sexmaturity(>20)
+			prunsero    below20(<20) sexmaturity(>10)
+			queralba    below20(<20) sexmaturity(>25)
+			quercocc    below20(<20) sexmaturity(>20)
+			quermacr    below20(<20) sexmaturity(>50)
+			querrubr    below20(<20) sexmaturity(>30)
+            quervelu    below20(<20) sexmaturity(>20)
+			thujocci    below20(<20) sexmaturity(>30)
+			tiliamer    below20(<20) sexmaturity(>15)
+            tsugcana    below20(<20) sexmaturity(>20)
+			ulmuamer    below20(<20) sexmaturity(>30)
+
+            

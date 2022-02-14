@@ -1,0 +1,947 @@
+﻿LandisData  "Biomass Harvest"
+
+Timestep    5
+
+ManagementAreas ./Input_Data/Management/managementAreas.tif
+Stands      	./Input_Data/Management/standMap.tif
+
+
+>>------------------------------------------------------------------------------------------------------------
+>>                      				PRESCRIPTIONS 
+>>------------------------------------------------------------------------------------------------------------
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Prescription Thin_20-30_Conif              << Commercial thinning in conifers plantations
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    
+	StandRanking  MaxCohortAge	 << Thin oldest stands first 
+	
+	MinimumAge	20                
+	MaximumAge	40
+	
+ 	ForestTypeTable    << Conifers plantations; combination of forest types from CPRS prescriptions below            
+     >> InclusionRule   ageRange    %Cells	  species
+     >>--------------------------------------------------------
+	Optional    	    20-999      highest		piceglau      		<<pure white spruce 
+	Optional    	    20-999      highest		pinuresi      		<<pure red pine
+	Optional    	    20-999      highest		picemari      		<<pure black spruce 
+	Optional    	    20-999      highest		picerube      		<<pure red spruce 
+	Optional    	    20-999      highest		piceabie           	<<pure Norway spruce 
+	Optional    	    20-999      highest		pinustro           	<<pure White pine - new CCA plantations
+	Optional    	    20-999      70   		pinuresi      		<<red pine at least 70% cells
+	Optional    	    20-999      70   		picemari      		<<black spruce at least 70% cells
+	Optional    	    20-999      70   		picerube      		<<red spruce at least 70% cells
+	Optional    	    20-999      70			piceabie           	<<Norway spruce at least 70% 
+	Optional    	    20-999      70   		piceglau      		<<white spruce at least 70% cells
+	Optional    	    20-999      80   		piceglau larilari   <<white spruce and larch at least 80% 
+	Optional    	    20-999      80   		pinuresi pinustro   <<red and white pine at least 80% 
+	Optional    	    20-999      80   		picemari larilari   <<black spruce and larch plantation
+	Optional    	    20-999      80   		picemari abiebals   <<black spruce and balsam fir plantation
+	Optional    	    20-999      80   		picerube piceglau   <<red and black spruce plantation
+	Optional    	    20-999      80	      	piceabie piceglau  	<<Norway spruce mixed with other spruce species
+	Optional    	    20-999      80        	piceabie picemari 
+	Optional    	    20-999      80	      	piceabie picerube
+	Optional    	    20-999      80	      	pinustro 
+	Optional    	    20-999      80	      	pinustro pinuresi
+
+	SiteSelection	CompleteStandSpread 1 70   << allow spreading to eligible highest ranking neighbor stand up tp the size of the largest known plantation on records (74 ha, AFBF data)
+	                                           
+	CohortsRemoved SpeciesList
+	>> Species Selection
+	>> ------- ---------
+	abiebals    20-30  (35%)     <<thinning 35% biomass of conifers 
+	acerrubr	20-999       
+	acersacc 	20-999        
+	betualle    20-999 
+	betupapy    20-999 
+	betupopu    20-999 
+	fagugran    20-999 
+	fraxamer    20-999 
+	larilari    20-30  (35%)     <<thinning 35% biomass of conifers 
+	piceabie  	20-30  (35%)     <<thinning 35% biomass of conifers 
+	piceglau	20-30  (35%)     <<thinning 35% biomass of conifers 
+	picemari	20-30  (35%)     <<thinning 35% biomass of conifers 
+	picerube	20-30  (35%)     <<thinning 35% biomass of conifers 
+	pinuresi	20-30  (35%)     <<thinning 35% biomass of conifers  
+	pinustro	20-30  (35%)     <<thinning 35% biomass of conifers 
+	popugran    20-999 
+	poputrem    20-999 
+	thujocci    20-999 
+	tsugcana    20-999  
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Prescription CPRS_60_piceglau            << Clearcut white spruce plantation and replant drought tolerant pines
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    StandRanking  MaxCohortAge 
+	
+	MinimumAge	60     
+	MaximumAge	70
+	
+ 	ForestTypeTable    << Conifers plantations                   
+    >> InclusionRule   ageRange    %Cells	species
+    >>--------------------------------------------------------       	
+	Optional    	    10-999      highest		piceglau      		<<pure white spruce 
+	Optional    	    10-999      80   		piceglau larilari   <<white spruce and larch at least 80% cells
+
+	SiteSelection	CompleteStandSpread 1 4       << Clearcuts larger than 4 ha are not executed 
+	                                           
+	CohortsRemoved SpeciesList
+	>> Species Selection
+	>> ------- ---------
+	abiebals    10-50  	51-999		    << remove all oohorts younger than 50y and 97% of cohorts above 50
+	acerrubr	10-999 
+	acersacc 	10-999 
+	betualle    10-999 
+	betupapy    10-999 
+	betupopu    10-999 
+	fagugran    10-999 
+	fraxamer    10-999 
+	larilari    10-50   51-999
+	piceabie  	10-50   51-999
+	piceglau	10-50   51-999
+	picemari	10-50   51-999
+	picerube	10-50   51-999
+	pinuresi	10-50   51-999(95%)    
+	pinustro	10-50   51-999(95%)
+	popugran    10-999 
+	poputrem    10-999 
+	thujocci    10-999 
+	tsugcana    10-999 
+	
+    Plant		pinustro pinuresi   <<plant pines
+	
+	
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Prescription CPRS_60_pinuresi            << Clearcut red pine plantation and replant the same species
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    StandRanking  MaxCohortAge 
+	
+	MinimumAge	60     
+	MaximumAge	70
+	
+ 	ForestTypeTable    << Conifers plantations                   
+    >> InclusionRule   ageRange    %Cells	species
+    >>--------------------------------------------------------       	
+	Optional    	    20-999      highest		pinuresi      		<<pure red pine
+	Optional    	    20-999      80   		pinuresi pinustro   <<red and white pine at least 80% cells
+
+	SiteSelection	CompleteStandSpread 1 4       << Clearcuts larger than 4 ha are not executed 
+	                                           
+	CohortsRemoved SpeciesList
+	>> Species Selection
+	>> ------- ---------
+	abiebals    20-50  	51-999     << remove all oohorts younger than 50y and 97% of cohorts above 50
+	acerrubr	20-999 
+	acersacc 	20-999 
+	betualle    20-999 
+	betupapy    20-999 
+	betupopu    20-999 
+	fagugran    20-999 
+	fraxamer    20-999 
+	larilari    20-50   51-999
+	piceabie  	20-50   51-999
+	piceglau	20-50   51-999
+	picemari	20-50   51-999
+	picerube	20-50   51-999
+	pinuresi	20-50   51-999(95%)    <<retain red pine seed tree
+	pinustro	20-50   51-999
+	popugran    20-999 
+	poputrem    20-999 
+	thujocci    20-999 
+	tsugcana    20-999 
+	
+    Plant		pinuresi   <<replant red pine (drought tolerant)
+	
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Prescription CPRS_60_picemari            << Clearcut black spruce plantation and replant pines
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    StandRanking  MaxCohortAge 
+	
+	MinimumAge	60     
+	MaximumAge	70
+	
+ 	ForestTypeTable    << Conifers plantations                   
+    >> InclusionRule   ageRange    %Cells	species
+    >>--------------------------------------------------------       	
+	Optional    	    20-999      highest		picemari      		<<pure black spruce 
+	>>Optional    	    20-999      70   		picemari      		<<black spruce at least 70% cells
+	Optional    	    20-999      highest   	picemari larilari   <<black spruce and larch plantation
+	Optional    	    20-999      highest   	picemari abiebals   <<black spruce and balsam fir plantation
+
+	SiteSelection	CompleteStandSpread 1 4       << Clearcuts larger than 4 ha are not executed 
+	                                           
+	CohortsRemoved SpeciesList
+	>> Species Selection
+	>> ------- ---------
+	abiebals    20-50  	51-999    << remove all oohorts younger than 50y and 97% of cohorts above 50 (to retain some seed trees) 
+	acerrubr	20-999 
+	acersacc 	20-999 
+	betualle    20-999 
+	betupapy    20-999 
+	betupopu    20-999 
+	fagugran    20-999 
+	fraxamer    20-999 
+	larilari    20-50   51-999
+	piceabie  	20-50   51-999
+	piceglau	20-50   51-999
+	picemari	20-50   51-999
+	picerube	20-50   51-999
+	pinuresi	20-50   51-999(95%)
+	pinustro	20-50   51-999(95%)
+	popugran    20-999 
+	poputrem    20-999 
+	thujocci    20-999 
+	tsugcana    20-999 
+	
+    Plant		pinustro pinuresi  <<plant drought and warmer adapted pines
+	
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Prescription CPRS_60_picerube            << Clearcut red spruce plantation and replant the same species
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    StandRanking  MaxCohortAge 
+	
+	MinimumAge	60     
+	MaximumAge	70
+	
+ 	ForestTypeTable    << Conifers plantations                   
+    >> InclusionRule   ageRange    %Cells	species
+    >>--------------------------------------------------------       	
+	Optional    	    20-999      highest		picerube      		<<pure red spruce 
+	>>Optional    	    20-999      70   		picerube      		<<red spruce at least 70% cells
+	Optional    	    20-999      highest   	picerube piceglau   <<red and black spruce plantation
+
+	SiteSelection	CompleteStandSpread 1 4       << Clearcuts larger than 4 ha are not executed 
+	                                           
+	CohortsRemoved SpeciesList
+	>> Species Selection
+	>> ------- ---------
+	abiebals    20-50  	51-999      << remove all oohorts younger than 50y and 100% of cohorts above 50 
+	acerrubr	20-999 
+	acersacc 	20-999 
+	betualle    20-999 
+	betupapy    20-999 
+	betupopu    20-999 
+	fagugran    20-999 
+	fraxamer    20-999 
+	larilari    20-50   51-999
+	piceabie  	20-50   51-999
+	piceglau	20-50   51-999
+	picemari	20-50   51-999
+	picerube	20-50   51-999(95%)    <<to retain some seed trees
+	pinuresi	20-50   51-999
+	pinustro	20-50   51-999
+	popugran    20-999 
+	poputrem    20-999 
+	thujocci    20-999 
+	tsugcana    20-999 
+	
+    Plant		picerube   <<replant red spruce 
+	
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Prescription CPRS_60_piceabie            << Clearcut Norway spruce plantation and replant pines and red spruce instead
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    StandRanking  MaxCohortAge 
+	
+	MinimumAge	60     
+	MaximumAge	70
+	
+ 	ForestTypeTable    << Conifers plantations                   
+    >> InclusionRule   ageRange    %Cells	  	species
+    >>--------------------------------------------------------       	
+	Optional    	    20-999      highest		piceabie           <<pure Norway spruce 
+	>>Optional    	    20-999      70			piceabie           <<at least 70% Norway spruce 
+	Optional    	    20-999      80	      	piceabie piceglau  <<Norway spruce mixed with other spruce species
+	Optional    	    20-999      80        	piceabie picemari 
+	Optional    	    20-999      80	      	piceabie picerube
+	
+	SiteSelection	CompleteStandSpread 1 4       << Clearcuts larger than 4 ha are not executed 
+	                                           
+	CohortsRemoved SpeciesList
+	>> Species Selection
+	>> ------- ---------
+	abiebals    20-50  	51-999      << remove all oohorts younger than 50y and 97% of cohorts above 50 
+	acerrubr	20-999 
+	acersacc 	20-999 
+	betualle    20-999 
+	betupapy    20-999 
+	betupopu    20-999 
+	fagugran    20-999 
+	fraxamer    20-999 
+	larilari    20-50   51-999 
+	piceabie  	20-50   51-999 
+	piceglau	20-50   51-999 
+	picemari	20-50   51-999 
+	picerube	20-50   51-999(95%)    <<keep seed tree, if any
+	pinuresi	20-50   51-999
+	pinustro	20-50   51-999
+	popugran    20-999 
+	poputrem    20-999 
+	thujocci    20-999 
+	tsugcana    20-999 
+	
+    Plant		picerube pinustro   <<replant red spruce with pines
+	
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Prescription CPRS_60_Conif            << Clearcut conifer plantations. Second rotation, CCA plantations picerube/pinuresi/pinustro
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    StandRanking  MaxCohortAge 
+	
+	MinimumAge	60     
+	MaximumAge	70
+	
+ 	ForestTypeTable    << Conifers plantations                   
+    >> InclusionRule   ageRange    %Cells	  	species
+    >>--------------------------------------------------------       	
+	Optional    	    20-999      highest		picerube           					<<pure red spruce
+	Optional    	    20-999      highest		pinuresi           					<<pure red pine
+	Optional    	    20-999      highest		pinustro           					<<pure white pine
+	Optional    	    20-999      highest		pinustro pinuresi       	<<combinations CCA conifers
+	Optional    	    20-999      highest		picerube pinustro pinuresi  <<combinations CCA conifers
+
+	SiteSelection	CompleteStandSpread 1 4       << Clearcuts larger than 4 ha are not executed 
+	                                           
+	CohortsRemoved SpeciesList
+	>> Species Selection
+	>> ------- ---------
+	abiebals    20-50  	51-999   
+	acerrubr	20-999 
+	acersacc 	20-999 
+	betualle    20-999 
+	betupapy    20-999 
+	betupopu    20-999 
+	fagugran    20-999 
+	fraxamer    20-999 
+	larilari    20-50   51-999
+	piceabie  	20-50   51-999
+	piceglau	20-50   51-999
+	picemari	20-50   51-999
+	picerube	20-50   51-999(95%)    <<keep seed tree
+	pinuresi	20-50   51-999(95%)    <<keep seed tree
+	pinustro	20-50   51-999(95%)    <<keep seed tree
+	popugran    20-999 
+	poputrem    20-999 
+	thujocci    20-999 
+	tsugcana    20-999 
+	
+    Plant		picerube pinustro pinuresi  <<replant warm- drought-adapted conifers
+	
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Prescription Thin_90-100_Mix                    <<Thinning interventions in evenaged mixed stands, executed between 90-100 years
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    StandRanking  MaxCohortAge	 << thin oldest stands first 
+	
+	MinimumAge	90               
+	MaximumAge	110
+	
+ 	ForestTypeTable    << mixed forests, requiring at least some conifers (10%) mixed with deciduous
+     >> InclusionRule   ageRange    %Cells	  species
+     >>-------------------------------------------------
+	Optional    	    20-999       10        abiebals      
+	Optional    	    20-999       10        larilari      
+	Optional    	    20-999       10        piceabie      
+	Optional    	    20-999       10        piceglau      
+	Optional    	    20-999       10        picemari
+	Optional    	    20-999       10        picerube
+	Optional    	    20-999       10        pinuresi
+	Optional    	    20-999       10        pinustro
+	Optional    	    20-999       10        thujocci
+    Optional    	    20-999       10        tsugcana
+    Optional    	    20-999       10        piceabie piceglau picemari <<combinations
+    Optional    	    20-999       10        piceabie piceglau picerube
+    Optional    	    20-999       10        piceabie picemari picerube
+    Optional    	    20-999       10        piceglau picemari picerube
+    Optional    	    20-999       10        piceabie piceglau
+    Optional    	    20-999       10        piceabie picemari
+    Optional    	    20-999       10        piceabie picerube
+    Optional    	    20-999       10        piceglau picemari
+    Optional    	    20-999       10        piceglau picerube
+    Optional    	    20-999       10        picemari picerube
+    Optional    	    20-999       10        pinuresi pinustro  << both pines
+    Optional    	    20-999       10        thujocci tsugcana  << cedar and hemlock
+	Optional    	    20-999       10        picerube pinustro pinuresi << cca species
+
+	SiteSelection	CompleteStandSpread 1 20    << average private forest surface CdQ is 46 ha but majority own stands 4-20 ha
+	                                           
+	CohortsRemoved SpeciesList
+	>> Species Selection
+	>> ------- ---------
+	abiebals	30-100	(37%) 	  << remove 37% of cohorts between 30 and 100 years of age, to mimic a combination of thinning from below and from above. 
+	acerrubr    30-100	(37%)     << increased +5% from BAU (33%). Do not remove cohorts below 30 years old to preserve regeneration
+	acersacc    30-100	(37%)
+	betualle    30-100	(37%)
+	betupapy    30-100	(37%)
+	betupopu    30-100	(37%)
+	fagugran    30-100	(37%)
+	fraxamer    30-100	(37%)
+	juglnigr    30-100	(37%)
+	larilari    30-100	(37%)
+	piceabie    30-100	(37%)
+	piceglau    30-100	(37%)
+	picemari    30-100	(37%)
+	picerube    30-100	(37%)
+	pinuresi    30-100	(37%)
+	pinustro    30-100	(37%)
+	popugran    30-100	(37%)
+	poputrem    30-100	(37%)
+	prunsero	30-100	(37%)
+	queralba	30-100	(37%)
+	quermacr	30-100	(37%)
+	querrubr	30-100	(37%)
+	thujocci	30-100	(37%)
+	tiliamer	30-100	(37%)
+	tsugcana	30-100	(37%)
+	
+	
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Prescription SeedCut_115_Mix             <<First shelterwood cut following thinning in evenaged mixed stands, executed at 115 years
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    StandRanking  MaxCohortAge	 <<  thin oldest stands first  
+	
+	MinimumAge	110               
+	MaximumAge	130
+	MinimumTimeSinceLastHarvest 15  
+	
+ 	ForestTypeTable   << Mixed stands                  
+     >> InclusionRule   ageRange    %Cells	  species
+     >>-------------------------------------------------
+	Optional    	   20-999       10        abiebals      
+	Optional    	   20-999       10        larilari      
+	Optional    	   20-999       10        piceabie      
+	Optional    	   20-999       10        piceglau      
+	Optional    	   20-999       10        picemari
+	Optional    	   20-999       10        picerube
+	Optional    	   20-999       10        pinuresi
+	Optional    	   20-999       10        pinustro
+	Optional    	   20-999       10        thujocci
+    Optional    	   20-999       10        tsugcana
+    Optional    	   20-999       10        piceabie piceglau picemari <<combination of spruces
+    Optional    	   20-999       10        piceabie piceglau picerube
+    Optional    	   20-999       10        piceabie picemari picerube
+    Optional    	   20-999       10        piceglau picemari picerube
+    Optional    	   20-999       10        piceabie piceglau
+    Optional    	   20-999       10        piceabie picemari
+    Optional    	   20-999       10        piceabie picerube
+    Optional    	   20-999       10        piceglau picemari
+    Optional    	   20-999       10        piceglau picerube
+    Optional    	   20-999       10        picemari picerube
+    Optional    	   20-999       10        pinuresi pinustro  << both pines
+    Optional    	   20-999       10        thujocci tsugcana  << cedar and hemlock
+	Optional    	   20-999       10        picerube pinustro pinuresi << cca species
+
+	SiteSelection	CompleteStandSpread 1 20    << average private forest surface CdQ is 46 ha but majority own stands 4-20 ha   
+	
+	CohortsRemoved SpeciesList          
+	>> Species Selection
+	>> ------- ---------
+	abiebals	 20-90 (37%)	<< remove 37% of cohorts. Keep cohorts <20y to preserve regeneration and >90y to retain seed sources
+    acerrubr     20-90 (37%)    << increased +5% from BAU (33%)
+    acersacc     20-90 (37%)
+    betualle     20-90 (37%)
+    betupapy     20-90 (37%)
+    betupopu     20-90 (37%)
+    fagugran     20-90 (37%)
+    fraxamer     20-90 (37%)
+    juglnigr     20-90 (37%)
+    larilari     20-90 (37%)
+    piceabie     20-90 (37%)
+    piceglau     20-90 (37%)
+    picemari     20-90 (37%)
+    picerube     20-90 (37%)
+    pinuresi     20-90 (37%)
+    pinustro     20-90 (37%)
+    popugran     20-90 (37%)
+    poputrem     20-90 (37%)
+    prunsero	 20-90 (37%)
+    queralba     20-90 (37%)
+    quermacr     20-90 (37%)
+    querrubr     20-90 (37%)
+    thujocci     20-90 (37%)
+    tiliamer     20-90 (37%)
+    tsugcana     20-90 (37%)
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Prescription RemovalCut_130_Mix              <<Second shelterwood cut in evenaged mixed stands at maturity (130 years) and natural regeneration - 2010-2020
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    StandRanking  MaxCohortAge	 <<  thin oldest stands first 
+	
+	MinimumAge	120                 
+	MaximumAge	150
+	MinimumTimeSinceLastHarvest 15  
+	
+ 	ForestTypeTable    << Mixed stands                  
+     >> InclusionRule   ageRange    %Cells	  species
+     >>-------------------------------------------------
+	Optional    	   20-999       10        abiebals      
+	Optional    	   20-999       10        larilari      
+	Optional    	   20-999       10        piceabie      
+	Optional    	   20-999       10        piceglau      
+	Optional    	   20-999       10        picemari
+	Optional    	   20-999       10        picerube
+	Optional    	   20-999       10        pinuresi
+	Optional    	   20-999       10        pinustro
+	Optional    	   20-999       10        thujocci
+    Optional    	   20-999       10        tsugcana
+    Optional    	   20-999       10        piceabie piceglau picemari <<combination of spruces
+    Optional    	   20-999       10        piceabie piceglau picerube
+    Optional    	   20-999       10        piceabie picemari picerube
+    Optional    	   20-999       10        piceglau picemari picerube
+    Optional    	   20-999       10        piceabie piceglau
+    Optional    	   20-999       10        piceabie picemari
+    Optional    	   20-999       10        piceabie picerube
+    Optional    	   20-999       10        piceglau picemari
+    Optional    	   20-999       10        piceglau picerube
+    Optional    	   20-999       10        picemari picerube
+    Optional    	   20-999       10        pinuresi pinustro  << both pines
+    Optional    	   20-999       10        thujocci tsugcana  << cedar and hemlock
+
+	SiteSelection	CompleteStandSpread 1 4    << Clearcuts larger than 4 ha are not executed 
+	
+	CohortsRemoved SpeciesList
+	>> Species Selection
+	>> ------- ---------
+	abiebals	20-999	(95%)     << Do not remove cohorts below 20y to preserve regeneration 
+	acerrubr    20-999	(95%)     
+	acersacc    20-999	(95%) 
+	betualle    20-999	(95%) 
+	betupapy    20-999	(95%) 
+	betupopu    20-999	(95%) 
+	fagugran    20-999	(95%) 
+	fraxamer    20-999	(95%) 
+	juglnigr    20-999	(95%) 
+	larilari    20-999	(95%) 
+	piceabie    20-999	(95%) 
+	piceglau    20-999	(95%) 
+	picemari    20-999	(95%) 
+	picerube    20-999	(95%) 
+	pinuresi    20-999	(95%)  
+	pinustro    20-999	(95%) 
+	popugran    20-999	(95%) 
+	poputrem    20-999	(95%) 
+	prunsero	20-999	(95%)
+	queralba    20-999	(95%)
+	quermacr    20-999	(95%)
+	querrubr    20-999	(95%)
+	thujocci    20-999	(95%)
+	tiliamer    20-999	(95%)
+	tsugcana    20-999	(95%)
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Prescription RemovalCut_130_Mix_plant        <<Second shelterwood cut in evenaged mixed stands at maturity (130 years) and plant CCA species - from 2021
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    StandRanking  MaxCohortAge	 <<  thin oldest stands first 
+	
+	MinimumAge	120                 
+	MaximumAge	150
+	MinimumTimeSinceLastHarvest 15  
+	
+ 	ForestTypeTable    << Mixed stands                  
+     >> InclusionRule   ageRange    %Cells	  species
+     >>-------------------------------------------------
+	Optional    	   20-999       10        abiebals      
+	Optional    	   20-999       10        larilari      
+	Optional    	   20-999       10        piceabie      
+	Optional    	   20-999       10        piceglau      
+	Optional    	   20-999       10        picemari
+	Optional    	   20-999       10        picerube
+	Optional    	   20-999       10        pinuresi
+	Optional    	   20-999       10        pinustro
+	Optional    	   20-999       10        thujocci
+    Optional    	   20-999       10        tsugcana
+    Optional    	   20-999       10        piceabie piceglau picemari <<combination of spruces
+    Optional    	   20-999       10        piceabie piceglau picerube
+    Optional    	   20-999       10        piceabie picemari picerube
+    Optional    	   20-999       10        piceglau picemari picerube
+    Optional    	   20-999       10        piceabie piceglau
+    Optional    	   20-999       10        piceabie picemari
+    Optional    	   20-999       10        piceabie picerube
+    Optional    	   20-999       10        piceglau picemari
+    Optional    	   20-999       10        piceglau picerube
+    Optional    	   20-999       10        picemari picerube
+    Optional    	   20-999       10        pinuresi pinustro  << both pines
+    Optional    	   20-999       10        thujocci tsugcana  << cedar and hemlock
+
+	SiteSelection	CompleteStandSpread 1 4    << Clearcuts larger than 4 ha are not executed 
+	
+	CohortsRemoved SpeciesList
+	>> Species Selection
+	>> ------- ---------
+	abiebals	20-999	(95%)     << Do not remove cohorts below 20y to preserve regeneration 
+	acerrubr    20-999	(95%)     
+	acersacc    20-999	(95%) 
+	betualle    20-999	(95%) 
+	betupapy    20-999	(95%) 
+	betupopu    20-999	(95%) 
+	fagugran    20-999	(95%) 
+	fraxamer    20-999	(95%) 
+	juglnigr    20-999	(95%) 
+	larilari    20-999	(95%) 
+	piceabie    20-999	(95%) 
+	piceglau    20-999	(95%) 
+	picemari    20-999	(95%) 
+	picerube    20-999	(95%) 
+	pinuresi    20-999	(95%)  
+	pinustro    20-999	(95%) 
+	popugran    20-999	(95%) 
+	poputrem    20-999	(95%) 
+	prunsero	20-999	(95%)
+	queralba    20-999	(95%)
+	quermacr    20-999	(95%)
+	querrubr    20-999	(95%)
+	thujocci    20-999	(95%)
+	tiliamer    20-999	(95%)
+	tsugcana    20-999	(95%)
+    
+	Plant		picerube pinustro pinuresi  <<replant warm- drought-adapted conifers
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Prescription SelHarv_Decid           << SelectionCutting (Coupe de Jardinage) in shade-tolerant deciduous uneven-aged forests 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    StandRanking  Random	 
+	
+	MinimumAge	10                  << to capture of wide range of stand ages 
+	MinimumTimeSinceLastHarvest 15  << to be sure to have at least 15 years between interventions
+	
+ 	ForestTypeTable   << Stand with one or combination of shade-tolerant deciduous species                    
+    >> InclusionRule   ageRange    %Cells	  species
+    >>-------------------------------------------------
+	Optional    	    10-235      highest   acerrubr       
+	Optional    	    10-300      highest   acersacc                 	
+	Optional    	    10-300      highest   betualle  
+	Optional    	    10-300      highest   fagugran
+	Optional    	    10-300      highest   fraxamer	
+	Optional    	    10-999      highest   acerrubr acersacc                            <<a diverse site dominated by these spp is considered deciduous
+	Optional    	    10-999      highest   acerrubr betualle       
+	Optional    	    10-999      highest   betualle acersacc    
+	Optional    	    10-999      highest   betualle betupapy betupopu	
+	Optional    	    10-999      highest   acerrubr acersacc betualle betupapy betupopu        
+	Optional    	    10-999      highest   betualle betupapy betupopu fagugran  fraxamer         
+	Optional    	    10-999      highest   fagugran fraxamer popugran poputrem            
+	Optional    	    10-999      highest   acerrubr acersacc betualle betupapy betupopu fagugran fraxamer popugran poputrem	
+	Optional    	    10-999      highest   acerrubr prunsero querrubr quermacr queralba tiliamer juglnigr 		  <<CCA species stand that may occur after replanting
+	Optional    	    10-999      highest   acerrubr prunsero querrubr quermacr queralba tiliamer juglnigr           <<maple combined with CCA species
+	Optional    	    10-999      highest   acerrubr acersacc betualle betupapy betupopu fagugran fraxamer popugran poputrem	prunsero querrubr quermacr queralba tiliamer juglnigr
+	
+	SiteSelection	CompleteStandSpread 1 40    << average private forest 46 ha but majority private stands 4-20 ha. Allow spread to max 40 contiguous ha (BAU 20 ha) 
+
+	CohortsRemoved SpeciesList
+	>> Species Selection
+	>> ------- ---------
+	abiebals	30-50 (25%)  51-80 (35%)  81-200 (40%)  <<increased +5% from BAU with removals between 25-40% biomass
+    acerrubr    30-50 (25%)  51-80 (35%)  81-235 (40%)  << to see if the effect on planted species is different (07/08/2020)
+    acersacc    30-50 (25%)  51-80 (35%)  81-300 (40%)  
+    betualle    30-50 (25%)  51-80 (35%)  81-300 (40%)  
+    betupapy    30-50 (25%)  51-80 (35%)  81-150 (40%)  
+    betupopu    30-50 (25%)  51-80 (35%)  81-150 (40%)  
+    fagugran    30-50 (25%)  51-80 (35%)  81-300 (40%)  
+    fraxamer    30-50 (25%)  51-80 (35%)  81-300 (40%)  
+    juglnigr    30-50 (25%)  51-80 (35%)  81-160 (40%)  
+    larilari    30-50 (25%)  51-80 (35%)  81-180 (40%)  
+    piceabie    30-50 (25%)  51-80 (35%)  81-350 (40%)  
+    piceglau    30-50 (25%)  51-80 (35%)  81-300 (40%)  
+    picemari    30-50 (25%)  51-80 (35%)  81-215 (40%)  
+    picerube    30-50 (25%)  51-80 (35%)  81-350 (40%)  
+    pinuresi    30-50 (25%)  51-80 (35%)  81-250 (40%)  
+    pinustro    30-50 (25%)  51-80 (35%)  81-400 (40%)  
+    popugran    30-50 (25%)  51-80 (35%)  81-110 (40%)  
+    poputrem    30-50 (25%)  51-80 (35%)  81-110 (40%)  
+    prunsero	30-50 (25%)  51-80 (35%)  81-180 (40%)  
+    queralba    30-50 (25%)  51-80 (35%)  81-400 (40%)  
+    quermacr    30-50 (25%)  51-80 (35%)  81-350 (40%)  
+    querrubr    30-50 (25%)  51-80 (35%)  81-250 (40%)  
+    thujocci    30-50 (25%)  51-80 (35%)  81-800 (40%)  
+    tiliamer    30-50 (25%)  51-80 (35%)  81-250 (40%)  
+    tsugcana    30-50 (25%)  51-80 (35%)  81-500 (40%)  
+	
+	
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Prescription SelHarv_Decid_plant           << SelectionCutting (Coupe de Jardinage) in shade-tolerant deciduous uneven-aged forests 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    StandRanking  Random	 
+	
+	MinimumAge	10                  << to capture of wide range of stand ages 
+	MinimumTimeSinceLastHarvest 15  << to be sure to have at least 15 years between interventions
+	
+ 	ForestTypeTable   << Stand with one or combination of shade-tolerant deciduous species                    
+    >> InclusionRule   ageRange    %Cells	  species
+    >>-------------------------------------------------
+	Optional    	    10-235      highest   acerrubr       
+	Optional    	    10-300      highest   acersacc                 	
+	Optional    	    10-300      highest   betualle  
+	Optional    	    10-300      highest   fagugran
+	Optional    	    10-300      highest   fraxamer	
+	Optional    	    10-999      highest   acerrubr acersacc                            <<a diverse site dominated by these spp is considered deciduous
+	Optional    	    10-999      highest   acerrubr betualle       
+	Optional    	    10-999      highest   betualle acersacc    
+	Optional    	    10-999      highest   betualle betupapy betupopu	
+	Optional    	    10-999      highest   acerrubr acersacc betualle betupapy betupopu        
+	Optional    	    10-999      highest   betualle betupapy betupopu fagugran  fraxamer         
+	Optional    	    10-999      highest   fagugran fraxamer popugran poputrem            
+	Optional    	    10-999      highest   acerrubr acersacc betualle betupapy betupopu fagugran fraxamer popugran poputrem	
+	Optional    	    10-999      highest   acerrubr prunsero querrubr quermacr queralba tiliamer juglnigr 		  <<CCA species stand that may occur after replanting
+	Optional    	    10-999      highest   acerrubr prunsero querrubr quermacr queralba tiliamer juglnigr           <<maple combined with CCA species
+	Optional    	    10-999      highest   acerrubr acersacc betualle betupapy betupopu fagugran fraxamer popugran poputrem	prunsero querrubr quermacr queralba tiliamer juglnigr
+	
+	SiteSelection	CompleteStandSpread 1 40    << average private forest 46 ha but majority private stands 4-20 ha. Allow spread to max 40 contiguous ha (BAU 20 ha) 
+
+	CohortsRemoved SpeciesList
+	>> Species Selection
+	>> ------- ---------
+	abiebals	30-50 (25%)  51-80 (35%)  81-200 (40%)  <<increased +5% from BAU with removals between 25-40% biomass
+    acerrubr    30-50 (25%)  51-80 (35%)  81-235 (40%)  << to see if the effect on planted species is different (07/08/2020)
+    acersacc    30-50 (25%)  51-80 (35%)  81-300 (40%)  
+    betualle    30-50 (25%)  51-80 (35%)  81-300 (40%)  
+    betupapy    30-50 (25%)  51-80 (35%)  81-150 (40%)  
+    betupopu    30-50 (25%)  51-80 (35%)  81-150 (40%)  
+    fagugran    30-50 (25%)  51-80 (35%)  81-300 (40%)  
+    fraxamer    30-50 (25%)  51-80 (35%)  81-300 (40%)  
+    juglnigr    30-50 (25%)  51-80 (35%)  81-160 (40%)  
+    larilari    30-50 (25%)  51-80 (35%)  81-180 (40%)  
+    piceabie    30-50 (25%)  51-80 (35%)  81-350 (40%)  
+    piceglau    30-50 (25%)  51-80 (35%)  81-300 (40%)  
+    picemari    30-50 (25%)  51-80 (35%)  81-215 (40%)  
+    picerube    30-50 (25%)  51-80 (35%)  81-350 (40%)  
+    pinuresi    30-50 (25%)  51-80 (35%)  81-250 (40%)  
+    pinustro    30-50 (25%)  51-80 (35%)  81-400 (40%)  
+    popugran    30-50 (25%)  51-80 (35%)  81-110 (40%)  
+    poputrem    30-50 (25%)  51-80 (35%)  81-110 (40%)  
+    prunsero	30-50 (25%)  51-80 (35%)  81-180 (40%)  
+    queralba    30-50 (25%)  51-80 (35%)  81-400 (40%)  
+    quermacr    30-50 (25%)  51-80 (35%)  81-350 (40%)  
+    querrubr    30-50 (25%)  51-80 (35%)  81-250 (40%)  
+    thujocci    30-50 (25%)  51-80 (35%)  81-800 (40%)  
+    tiliamer    30-50 (25%)  51-80 (35%)  81-250 (40%)  
+    tsugcana    30-50 (25%)  51-80 (35%)  81-500 (40%)  
+	
+	Plant		prunsero querrubr quermacr queralba tiliamer juglnigr     <<plant native warm/drough-adapted deciduous
+   
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Prescription SelHarv_SugarBush        << Modified SelectionCutting (Coupe de Jardinage) in sugar maple stands for syrup production  
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+	StandRanking Random
+
+	MinimumAge	30                  
+	MinimumTimeSinceLastHarvest 15  << at least 15 years between interventions
+>>	MinimumBiomass	5000            
+
+   	ForestTypeTable   << Sugarbushes                 
+    >> InclusionRule   ageRange    %Cells	  species
+    >>-------------------------------------------------
+	Optional    	   30-300      highest    acersacc    		<< pure sugar maple
+	Optional    	   30-300      70         acersacc    		<< at least 70% sugar maple
+	Optional    	   30-300      highest    acersacc acerrubr << sugar mixed with red maple
+
+	SiteSelection CompleteStandSpread 1 20    << average private forest 46 ha but majority private stands 4-20 ha. Allow spread to max 20 contiguous ha  
+
+	CohortsRemoved SpeciesList
+	>> Species Selection
+	>> ------- ---------
+	abiebals    30-50 (90%)  51-80 (90%)  81-200 (90%) 
+	acerrubr    30-50 (25%)  51-80 (35%)  81-235 (40%)   << harvest between 25-40% of red maple, as in other SelectionCut
+	acersacc  	30-50 (20%)  51-80 (20%)  81-300 (25%)   << harvest between 20-25% of sugar maple
+	betualle	30-50 (75%)  51-80 (75%)  81-300 (75%)   << good accessory species, harvested less than the others
+	betupapy	30-50 (90%)  51-80 (90%)  81-150 (90%)
+	betupopu	30-50 (90%)  51-80 (90%)  81-150 (90%)
+	fagugran	30-50 (90%)  51-80 (90%)  81-300 (90%)
+	fraxamer	30-50 (75%)  51-80 (75%)  81-300 (75%)  << good accessory species
+    juglnigr    30-50 (25%)  51-100(35%)  101-160(90%)  << CCA species allowed to mix if regenerates from near stands. Harvested like red maple but remove when 100+ 
+	larilari    30-50 (90%)  51-80 (90%)  81-180 (90%)
+    piceabie    30-50 (90%)  51-80 (90%)  81-350 (90%)
+    piceglau    30-50 (90%)  51-80 (90%)  81-300 (90%)
+    picemari    30-50 (90%)  51-80 (90%)  81-215 (90%)
+    picerube    30-50 (90%)  51-80 (90%)  81-350 (90%)
+    pinuresi    30-50 (90%)  51-80 (90%)  81-250 (90%)
+    pinustro    30-50 (90%)  51-80 (90%)  81-400 (90%)
+    popugran    30-50 (90%)  51-80 (90%)  81-110 (90%)
+    poputrem    30-50 (90%)  51-80 (90%)  81-110 (90%)
+	prunsero	30-50 (25%)  51-100(35%)  101-180(90%)  << CCA species allowed to mix if regenerates from near stands. Harvested like red maple but remove when 100+
+	queralba    30-50 (25%)  51-100(35%)  101-400(90%)  << CCA species allowed to mix if regenerates from near stands. Harvested like red maple but remove when 100+
+	quermacr    30-50 (25%)  51-100(35%)  101-350(90%)  << CCA species allowed to mix if regenerates from near stands. Harvested like red maple but remove when 100+
+	querrubr    30-50 (25%)  51-100(35%)  101-250(90%)  << CCA species allowed to mix if regenerates from near stands. Harvested like red maple but remove when 100+
+    thujocci    30-50 (90%)  51-80 (90%)  81-800 (90%)                                                                                                          
+	tiliamer    30-50 (25%)  51-100(35%)  101-250(90%)  << CCA species allowed to mix if regenerates from near stands. Harvested like red maple but remove when 100+
+    tsugcana    30-50 (90%)  51-80 (90%)  81-500 (90%)
+	
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  
+Prescription BackgroundDist
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+>>Random cohort mortality derived from disturbances scores reflecting the aveage vulnerability of tree species to an ensenble of disturbance factors(Matthews et al 2011, Brandt et al 2017)
+
+    StandRanking    Random
+	SiteSelection 	Complete          <<Emulate small-scale disturbance
+	
+	CohortsRemoved SpeciesList
+	>> Species Selection
+	>> ------- ---------
+	abiebals	1-999	(53%)        
+	acerrubr	1-999	(40%)
+	acersacc	1-999	(36%)
+	betualle	1-999	(49%)
+	betupapy	1-999	(60%)
+	betupopu	1-999	(58%)
+	fagugran	1-999	(43%)
+	fraxamer	1-999	(40%)
+	juglnigr	1-999	(20%)  <<CCA species, minimum vulnerability
+	larilari	1-999	(36%)
+	piceabie  	1-999	(21%)
+	piceglau	1-999	(32%)
+	picemari	1-999	(53%)
+	picerube	1-999	(43%)
+	pinuresi	1-999	(20%)
+	pinustro	1-999	(49%)
+	popugran	1-999	(33%)
+	poputrem	1-999	(53%)
+	prunsero	1-999	(20%)  <<CCA species, minimum vulnerability
+	queralba	1-999	(20%)  <<CCA species, minimum vulnerability
+	quermacr	1-999	(20%)  <<CCA species, minimum vulnerability
+	querrubr	1-999	(20%)  <<CCA species, minimum vulnerability
+	thujocci	1-999	(26%)
+	tiliamer	1-999	(20%)  <<CCA species, minimum vulnerability
+	tsugcana	1-999	(29%)
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  
+Prescription BackgroundDist2
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+>>Cohort mortality derived from disturbances scores reflecting the aveage vulnerability of tree species to an ensenble of disturbance factors (Matthews et al 2011, Brandt et al 2017)
+>>Excluding species affected by Pathogens prescription (see below). Active from 2040 to 2200.
+
+    StandRanking    Random
+	SiteSelection 	Complete          <<Emulate small-scale disturbance
+	
+	CohortsRemoved SpeciesList
+	>> Species Selection
+	>> ------- ---------
+	abiebals	1-999	(53%)        
+	acerrubr	1-999	(40%)
+	acersacc	1-999	(36%)
+	betualle	1-999	(49%)
+	betupapy	1-999	(60%)
+	betupopu	1-999	(58%)
+	fraxamer	1-999	(40%)
+	larilari	1-999	(36%)
+	piceabie  	1-999	(21%)
+	piceglau	1-999	(32%)
+	picemari	1-999	(53%)
+	picerube	1-999	(43%)
+	pinuresi	1-999	(20%)
+	pinustro	1-999	(49%)
+	popugran	1-999	(33%)
+	poputrem	1-999	(53%)
+	prunsero	1-999	(20%)  	<<CCA species, minimum vulnerability
+	thujocci	1-999	(26%)
+	tiliamer	1-999	(20%)  	<<CCA species, minimum vulnerability
+	tsugcana	1-999	(29%)
+	
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  
+Prescription Pathogens
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+>>Biomass removal of species likely susceptible to imminent pathogens (Invasive Species Centre 2020): 1) beech bark -and leaf- disease (fagus); 2) Oak Wilt (quercus); 3) Thousand Canker Disease (juglans)
+>>Beech bark disease: F. grandifolia > 20cm diameter are killed and many more are severely damaged (Houston 1994). [20cm ~40to60yr]
+>>Oak wilt: Any age/size of tree can be killed by oak wilt (Roberts, D. L. 2016a. Oak wilt 101. [https://www.michiganoakwilt.org/oak-wilt-101/]). querrubr most susceptible, quermacr moderate, queralba minor
+
+    StandRanking    Random
+	SiteSelection 	Complete          <<Emulate small-scale disturbance
+	
+	CohortsRemoved SpeciesList
+	>> Species Selection
+	>> ------- ---------
+	fagugran	1-40 (70%)  41-80 (80%)  81-999 (98%)   		<<emulate effect of beech bark disease. Higher mortality on large diameters
+	juglnigr	1-40 (80%)  41-80 (80%)  81-999 (80%)   		<<susceptibe to thousand canker disease. Same mortality across size classes.
+	queralba	1-40 (65%)  41-80 (65%)  81-999 (65%) 			<<low susceptible to oak wilt 
+	quermacr	1-40 (75%)  41-80 (75%)  81-999 (75%) 			<<moderately susceptible to oak wilt 
+	querrubr	1-40 (90%)  41-80 (90%)  81-999 (90%) 			<<highly susceptible to oak wilt 
+
+
+>>--------------------------------------------------------------------
+>>                      HARVESTING IMPLEMENTATION 
+>>--------------------------------------------------------------------
+>>	MgtArea	Description
+>> ------------------------------------
+>>	1		Private forests  
+>>	2		Sugarbushes/Erablières 
+>>	3		Public forests, managed 
+>>	4		Public Ecological reserves and wetlands (unharvested)
+
+
+HarvestImplementations   
+>>  Mgmt Area   Prescription    		Harvest Area    Begin Year  End Year		<<increased %Harvest Area in all prescriptions (tot 15%/5yr) 
+>>  ---------   ------------    		------------    ----------  --------
+	1			Thin_20-30_Conif			4.18%				           			        
+	1			CPRS_60_piceglau			0.13%			0			60			<< clearcut old plantations in first rotation	   
+	1			CPRS_60_pinuresi			0.13%			0			60
+	1			CPRS_60_picemari			0.13%			0			60
+	1			CPRS_60_picerube			0.13%			0			60
+	1			CPRS_60_piceabie			0.13%			0			60
+	1			CPRS_60_Conif				0.65%			61			190			<< clearcut new CCA plantations
+	1			Thin_90-100_Mix				3.49%			
+	1			SeedCut_115_Mix				0.63%			
+	1			RemovalCut_130_Mix			0.70%			0			10			<< no planting CCA species 2010-2020
+	1			RemovalCut_130_Mix_plant	0.70%			11			190			<< planting CCA species from 2021
+	1			SelHarv_Decid	  			5.33%			0			10			<< SelHarv natural regeneration (BAU) until 2020
+	1			SelHarv_Decid	  			2.11%			11			190			<< SelHarv natural regeneration on 40% harv deciduous stands
+	1			SelHarv_Decid_plant			3.22%			11			190			<< SelHarv plant CCA species on 60% harv deciduous stands
+	1			BackgroundDist				5.0%			0			30          << BackgroundDist all species 2010-2040
+	1			Pathogens					5.0%			31			140			<< higher mortality from pathogens 2040-2150 [fagugran-juglnigr-quercus] 
+	1			BackgroundDist2				5.0%			31			140         << BackgroundDist excl fagugran-juglnigr-quercus 2040-2150
+	1			BackgroundDist				5.0%			141			190         << BackgroundDist all species 2150-end	
+	2			Thin_20-30_Conif			2.73%				            		<< all prescriptions MA2 reduced by 1/3 for priority to SelHarv_SugarBush      
+	2			CPRS_60_piceglau			0.09%			0			60			<< clearcut old plantations in first rotation			
+	2			CPRS_60_pinuresi			0.09%			0			60						
+	2			CPRS_60_picemari			0.09%			0			60						
+	2			CPRS_60_picerube			0.09%			0			60						
+	2			CPRS_60_piceabie			0.09%			0			60						
+	2			CPRS_60_Conif				0.45%			61			190			<<clearcut new CCA plantations
+	2			Thin_90-100_Mix				2.34%			               			 
+	2			SeedCut_115_Mix				0.39%			               			 
+	2			RemovalCut_130_Mix			0.39%				            		 
+	2			SelHarv_SugarBush  			5.33%					
+	2			BackgroundDist				5.0%			0			30          << BackgroundDist all species 2010-2040
+	2			Pathogens					5.0%			31			140			<< higher mortality from pathogens 2040-2150 [fagugran-juglnigr-quercus] 
+	2			BackgroundDist2				5.0%			31			140         << BackgroundDist excl fagugran-juglnigr-quercus 2040-2150
+	2			BackgroundDist				5.0%			141			190         << BackgroundDist all species 2150-end				
+	3			Thin_20-30_Conif			4.18%				           			        
+	3			CPRS_60_piceglau			0.13%			0			60			<< clearcut old plantations in first rotation	   
+	3			CPRS_60_pinuresi			0.13%			0			60
+	3			CPRS_60_picemari			0.13%			0			60
+	3			CPRS_60_picerube			0.13%			0			60
+	3			CPRS_60_piceabie			0.13%			0			60
+	3			CPRS_60_Conif				0.65%			61			190			<< clearcut new CCA plantations
+	3			Thin_90-100_Mix				3.49%			
+	3			SeedCut_115_Mix				0.63%			
+	3			RemovalCut_130_Mix			0.70%			0			10			<< no planting CCA species 2010-2020
+	3			RemovalCut_130_Mix_plant	0.70%			11			190			<< planting CCA species from 2021
+	3			SelHarv_Decid	  			5.33%			0			10			<< SelHarv as BAU until 2020
+	3			SelHarv_Decid	  			2.11%			11			190			<< SelHarv natural regeneration on 40% harv deciduous stands
+	3			SelHarv_Decid_plant			3.22%			11			190			<< SelHarv plant CCA species on 60% harv deciduous stands
+	3			BackgroundDist				5.0%			0			30          << BackgroundDist all species 2010-2040
+	3			Pathogens					5.0%			31			140			<< higher mortality from pathogens 2040-2150 [fagugran-juglnigr-quercus] 
+	3			BackgroundDist2				5.0%			31			140         << BackgroundDist excl fagugran-juglnigr-quercus 2040-2150
+	3			BackgroundDist				5.0%			141			190         << BackgroundDist all species 2150-end					
+>>	4			unharvested		
+	4			BackgroundDist				5.0%			0			30          << BackgroundDist all species 2010-2040
+	4			Pathogens					5.0%			31			140			<< higher mortality from pathogens 2040-2150 [fagugran-juglnigr-quercus] 
+	4			BackgroundDist2				5.0%			31			140         << BackgroundDist excl fagugran-juglnigr-quercus 2040-2150
+	4			BackgroundDist				5.0%			141			190         << BackgroundDist all species 2150-end					
+	
+
+>>-----------------------------------------------------------------
+>> OUTPUTS
+
+PrescriptionMaps    ./Output/harvest/prescripts-{timestep}.img
+BiomassMaps			./Output/harvest/biomass-removed-{timestep}.img
+EventLog            ./Output/harvest/event-log.csv
+SummaryLog	    	./Output/harvest/summary-log.csv

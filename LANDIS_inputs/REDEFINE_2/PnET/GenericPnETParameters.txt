@@ -1,0 +1,14 @@
+LandisData	PnETGenericParameters
+PnETGenericParameters		Value
+MaxCanopyLayers				2
+MaxDevLyrAv 				8000
+IMAX						5
+BFolResp					0.1
+MaintResp					0.003  <<Loss of NSC due to maintenance respiration
+DNSC						0.05   <<Proportion of NSC relative to total active biomass
+PrecipEvents				11
+Wythers						true
+DTEMP						true
+CO2AmaxBeff					1.0
+EstMoist					3.1
+EstRad						3.1 

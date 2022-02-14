@@ -1,0 +1,106 @@
+LandisData "BDA Agent"
+
+BDAAgentName	GypsyMoth								
+BDPCalibrator	1	 						<<parameter 'a' in BDP equation(2) user Guide. Default 1	
+SRDMode			mean 						<<max or mean, SRD score based on the mean or max SRD								
+StartYear		10   	    				<<the first year when an outbreak can occur	(2020)			
+EndYear 	  	29							<<the last year when an outbreak can occur	(from 2020 to 2030)								
+
+>>----------------------------------
+>> BDA DISTURBANCE REGIME PARAMETERS
+>>----------------------------------
+
+>>-------- Regional Outbreak Inputs -------------
+OutbreakPattern			CyclicUniform		<<CyclicNormal or CyclicUniform
+MaxInterval				15                  <<max interval between outbreaks - Foster et al 2013 each 6-10yr. Set 7-15yr for more variability.
+MinInterval				7                   <<min interval between outbreaks
+TimeSinceLastEpidemic	0					<<years
+TemporalType 			pulse				<<pulse or variablepulse. If pulse, MinROS and MaxROS should be set to the same value.
+MinROS					0 					<<background outbreak activity in each time step. 0 no outbreak, 3 intense
+MaxROS					1					<<max intensity of regional outbreak. 1 light, 3 intense
+	
+	
+>>-------- Dispersal Inputs ----------------------									
+Dispersal					yes			<<yes (asyncronous, dispersal ON) or no (synchronous across landscape)							
+DispersalRate				2500		<<meters/year | ADispersal via balooning avg 2.5km/year (Liebhold et al 1992)
+EpidemicThresh				0.001		<<the minimum BDP (0-1) required for an Epicenter to be selected								
+InitialEpicenterNum			4			<<chosen arbitrarily. Assuming 4 initial epicenters. 					
+OutbreakEpicenterCoeff		0.1			<<The number of new epicenters (within outbreak zone). Decreases with increasing c. 
+OutbreakEpicenterThresh 	0.0	
+SeedEpicenter				yes			<<yes or no							
+SeedEpicenterCoeff			0.5			<<param. "c",eq.3(user guide)			
+DispersalTemplate			MaxRadius	<<MaxRadius, 4N,8N, 12N, or 24N"							
+
+
+>>-------- Neighborhood Resource Inputs ---------------------- 									
+NeighborFlag		yes 		<<yes or no. Determines whether NRD is used in calculating BDP.					
+NeighborSpeedUp		none		<<none, 2x, 3x, or 4x"							
+NeighborRadius		100			<<meters | Gustafson et al 2017							
+NeighborShape		uniform		<<uniform, linear, or gaussian; weight of neighborhood cells vs. distance to site					
+NeighborWeight		0.5			<<0.01-100; parameter NW in eq.2; 0.01:NRD weight=0% of SRD,1:50%,10:91%,100=100% of SRD						
+
+
+>>-------- Intensity Class Thresholds ---------------------- 
+>>IntensityClass1_BDP 	0   -- Hardwired value
+IntensityClass2_BDP 	0.25	
+IntensityClass3_BDP 	0.70 	
+
+
+>>Ecoregion Modifiers       <<Land Type Modifier (LTM) are constant for the entire simulation
+
+DisturbanceModifiers      <<influence of another disturbance type on Site Resource Dominance [SRDm=SRD+LTM+(DMwind+DMfire+...)]
+>>SRD Modifer	Duration	Type
+  -0.33			20			BackgroundDist   	<<reduce SRD by 1/3 after background disturbance prescription simulated with Biomass Harvest 
+  -0.33			20			BackgroundDist2  	<<reduce SRD by 1/3 after background disturbance prescription simulated with Biomass Harvest 
+   0.50			20			Pathogens			<<increase SRD by 50% after Pathogens prescr (Biomass Harvest): higher SRD for Quercus and fagugran if attacked by pathogens 
+
+   
+>>-------------------------
+>> BDA SEVERITY PARAMETERS
+>>--------------------------
+								
+BDASpeciesParameters
+>>SRD: probability of defoliation | MortProb: mortality probability for cohorts in that class when disturbance occurs 	
+>>Age value greater than species longevity (eg, 999) = the species never reaches the indicated class
+>>Host preference in Quebec from Mauffette-Lechowicz-Jobin (1982) CanJForRes and https://forestinvasives.ca/Meet-the-Species/Insects/European-Gypsy-Moth#76743-host-trees
+>>SRC and MortProb estimated similar to sprucebudworm (lepidopter defoliator) for Quebec (Boulanger et al 2017) to emulate the effect
+>>         -------------Host Value--------------  -------------Susceptibility-------------
+>>Species  MinorHost    2ndHost      MajorHost    Class3        Class2        Class1	    SpecialDeadFuel
+>>Name     Age SRDProb  Age SRDProb  Age SRDProb  Age MortProb  Age MortProb  Age MortProb  Conifer?
+>> ---------------------------------------------------------------------------------------------
+queralba   0	0.25	20  0.50	 40   1.0	  0   0.0		20  0.40	  40  0.75		no	 <<major - all oaks
+quermacr   0	0.25	20  0.50	 40   1.0	  0   0.0		20  0.40	  40  0.75		no	 <<major - all oaks
+querrubr   0	0.25	20  0.50	 40   1.0	  0   0.0		20  0.40	  40  0.75		no	 <<major - all oaks
+quercocc   0	0.25	20  0.50	 40   1.0	  0   0.0		20  0.40	  40  0.75		no	 <<major - all oaks
+quervelu   0	0.25	20  0.50	 40   1.0	  0   0.0		20  0.40	  40  0.75		no	 <<major - all oaks
+popugran   0	0.25	20  0.50	 40   1.0	  0   0.0		20  0.40	  40  0.75		no	 <<major
+acersacc   0	0.18	20  0.36	 40   0.72	  0   0.0		20  0.15	  40  0.40		no	 <<secondary (-30/40%)
+betupapy   0	0.18	20  0.36	 40   0.72	  0   0.0		20  0.15	  40  0.40		no	 <<secondary
+betupopu   0	0.18	20  0.36	 40   0.72	  0   0.0		20  0.15	  40  0.40		no	 <<secondary
+fagugran   0	0.18	20  0.36	 40   0.72	  0   0.0		20  0.15	  40  0.40		no	 <<secondary
+poputrem   0	0.18	20  0.36	 40   0.72	  0   0.0		20  0.15	  40  0.40		no	 <<secondary
+prunsero   0	0.18	20  0.36	 40   0.72	  0   0.0		20  0.15	  40  0.40		no	 <<secondary
+tiliamer   0	0.18	20  0.36	 40   0.72	  0   0.0		20  0.15	  40  0.40		no	 <<secondary
+ulmuamer   0	0.18	20  0.36	 40   0.72	  0   0.0		20  0.15	  40  0.40		no	 <<secondary
+acerrubr   0	0.07	20  0.14	 40   0.41	  20  0.10		40  0.30	  999 1 		no	 <<minor 
+betualle   0	0.10	20  0.30	 40   0.70	  20  0.10		40  0.30	  999 1			no	 <<minor
+betulent   0	0.10	20  0.30	 40   0.70	  20  0.10		40  0.30	  999 1			no	 <<minor
+
+ 
+IgnoredSpecies																	
+abiebals
+larilari
+piceabie
+piceglau
+picemari
+picerube
+pinuresi
+pinustro
+thujocci
+tsugcana
+fraxamer <<unfavored hardwood host
+juglnigr <<unfavored hardwood host - CCA planted 
+lirituli <<unfavored hardwood host - FDN planted 
+carycord <<unfavored hardwood host - FDN planted 
+caryglab <<unfavored hardwood host - FDN planted 
+acersach <<unfavored hardwood host - FDN planted 

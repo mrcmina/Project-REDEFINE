@@ -1,0 +1,39 @@
+LandisData  "Output Cohort Statistics"
+
+
+Timestep   10
+
+
+>>-----------------------------------------------------------------
+>> OUPUT STATISTICS (output maps that are specific to age cohorts
+>>-----------------------------------------------------------------
+
+>> ---- SPECIES-AGE ------------------------------------------------
+SpeciesAgeStats
+MapNames   Output/Cohort-stats/age-per-spp/{species}-{statistic}-{timestep}.img
+
+MAX 		abiebals acerrubr acersacc acersach betualle betulent betupapy betupopu carycord caryglab fagugran fraxamer juglnigr larilari lirituli piceabie piceglau picemari picerube pinuresi pinurigi pinustro pinutaed popugran poputrem prunsero queralba quercocc quermacr querrubr quervelu thujocci tiliamer tsugcana ulmuamer	<< maximum age for listed species
+>>MIN 		abiebals acerrubr      		<< minimum age for listed species                                                                                                     
+>>MED		abiebals acerrubr			<< median age for listed species                                                                                                      
+>>SD		abiebals acerrubr			<< standard deviation age for listed species                                                                                          
+>>AVG		abiebals acerrubr			<< average age for listed species
+
+>> ---- SITE-AGE -----------------------------------------------------
+SiteAgeStats
+MapNames   Output/Cohort-stats/age-all-spp/AGE-{statistic}-{timestep}.img
+
+MIN 		<< minimum age across all species on site
+MAX			<< maximum age across all species on site
+AVG			<< average age across all species on site
+RICH   		<< number of age classes across all species on site
+>>MED			<< median age across all species on site
+>>EVEN   		<< evenness 
+>>COUNT   		<< count of cohorts
+
+>> ---- SITE&SPECIES ----------------------------------------------------------
+SiteSpeciesStats
+MapNames   Output/Cohort-stats/spp-counts/SPP-{statistic}-{timestep}.img
+
+RICH   			<<count of species (this is the only available stats for site+species)
+
+

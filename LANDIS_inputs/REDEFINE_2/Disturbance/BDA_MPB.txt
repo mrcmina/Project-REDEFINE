@@ -1,0 +1,107 @@
+LandisData "BDA Agent"
+
+BDAAgentName	MountainPineBeetle
+BDPCalibrator	1                           <<parameter 'a' in BDP equation(2) user Guide. Default 1
+SRDMode			mean                        <<max or mean, SRD score based on the mean or max SRD	
+StartYear		30   	    				<<the first year when an outbreak can occur	(2040)			
+EndYear 	  	140							<<the last year when an outbreak can occur	(until 2150)							
+
+>>----------------------------------
+>> BDA DISTURBANCE REGIME PARAMETERS
+>>----------------------------------
+
+>>-------- Regional Outbreak Inputs -------------
+OutbreakPattern 		CyclicUniform 	<<CyclicNormal or CyclicUniform 
+MaxInterval        		40				<<from Lundquist & Reich (2014) - average return interval between 20-40 years
+MinInterval        		20				<<from Lundquist & Reich (2014) - average return interval between 20-40 years
+TimeSinceLastEpidemic 	20 				<<years (20 to make first outbreaks occurring shortly after 2040)
+TemporalType 			pulse			<<pulse or variablepulse (must be set to 'pulse' if StartYear is used)
+MinROS					0               <<outbreak activity in each time step. 0 no outbreak, 3 intense (must be set to '0' if StartYear is used)
+MaxROS					3               <<max intensity of regional outbreak. 1 light, 3 intense
+
+
+>>-------- Dispersal Inputs ----------------------
+Dispersal				yes			<<yes(asynchronous) or no(synchronous)	
+DispersalRate			1000		<<meters/year. 3/4 attacks new trees within 100m but max dispersal distance 2km (Robertson etal 2007, 2009). Set to 1km/year (10km/10yr)
+EpidemicThresh			0.01   		<<Scheller etal 2017
+InitialEpicenterNum		4      		<<number of initial epidemic (chosen arbitrarily)
+OutbreakEpicenterCoeff	0.05    	<<increasing this param decreases # of new epicenters (set between 0.1-0.01)
+OutbreakEpicenterThresh 0.0
+SeedEpicenter			yes			<<yes or no
+SeedEpicenterCoeff		0.05
+DispersalTemplate		MaxRadius	<<MaxRadius, 4N,8N, 12N, or 24N
+
+
+>>-------- Neighborhood Resource Inputs -----------
+NeighborFlag		yes			<<yes or no	(determines whether NRD is used in calculating BDP)	 
+NeighborSpeedUp		2x			<<none, 2x, 3x, or 4x *should apply neighborhood function, as mpb dont use aggregation pheremone and are more generalist. CFS synthesis 2006
+NeighborRadius		2000		<<meters. From Safranyik 2006/Scheller etal 2017
+NeighborShape		uniform		<<uniform, linear, or gaussian; weight of neighborhood cells vs. distance to site
+NeighborWeight		20          <<0.01-100; parameter NW in eq.2; 0.01:NRD weight=0% of SRD,1:50%,10:91%,100=100% of SRD. From Scheller etal 2017
+
+
+>>-------- Intensity Class Thresholds ----------------------
+>>IntensityClass1_BDP 	0.0 -- Hardwired value
+IntensityClass2_BDP 	0.05
+IntensityClass3_BDP 	0.1
+
+
+>>Ecoregion Modifiers       
+
+DisturbanceModifiers      <<influence of another disturbance type on Site Resource Dominance [SRDm=SRD+LTM+(DMwind+DMfire+...)]
+>>SRD Modifer	Duration	Type
+  -0.33			20			BackgroundDist  <<reduce SRD by 1/3 after background disturbance prescription simulated with Biomass Harvest 
+  -0.33			20			BackgroundDist2  <<reduce SRD by 1/3 after background disturbance prescription simulated with Biomass Harvest 
+ 
+ 
+>>-------------------------
+>> BDA SEVERITY PARAMETERS
+>>--------------------------
+
+BDASpeciesParameters 
+>>Susceptibility of eastern pines from Rosenberg et al 2017 PLOS "Suscept. eastern white pine similar to lodgepole, and red pine similar to ponderosa"
+>>Pitch and loblolly pines added as susceptible hosts too
+>>SRD: probability of defoliation. Age value greater than species longevity (eg, 999) = the species never reaches the indicated class
+>>MortProb: probability of mortality for cohorts in that class when disturbance occurs. 
+>>MortProb for red and white pine estimated from relationship DBH-mortality lodgepole pine Bjorklund&Lindgren(2009) [dbh to age with CdQ dbg-age regressions]
+>>         -------------Host Value--------------  -------------Susceptibility-------------
+>>Species  MinorHost    2ndHost      MajorHost    Class3        Class2        Class1	    SpecialDeadFuel
+>>Name     Age SRDProb  Age SRDProb  Age SRDProb  Age MortProb  Age MortProb  Age MortProb  Conifer?
+>> ---------------------------------------------------------------------------------------------
+pinuresi	30	0.33    40 	1.0		 60	 1.0      30  0.30		40	0.60      60  0.90 		yes    <<most susceptible 
+pinustro	30	0.33    40 	1.0		 60	 1.0      30  0.30		40	0.40      60  0.70 		yes    <<susceptible | -20% large diameters
+pinurigi	30	0.33    40 	1.0		 60	 1.0      30  0.30		40	0.40      60  0.70 		yes    <<susceptible
+pinutaed	30	0.33    40 	1.0		 60	 1.0      30  0.30		40	0.40      60  0.70 		yes    <<susceptible
+
+IgnoredSpecies
+abiebals
+acerrubr
+acersacc
+acersach
+betualle
+betulent
+betupapy
+betupopu
+carycord
+caryglab
+fagugran
+juglnigr
+fraxamer
+larilari
+lirituli
+piceabie
+piceglau
+picemari
+picerube
+popugran
+poputrem
+prunsero
+queralba
+quercocc
+quermacr
+querrubr
+quervelu
+thujocci
+tiliamer
+tsugcana
+ulmuamer
