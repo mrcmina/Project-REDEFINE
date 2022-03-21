@@ -2,7 +2,7 @@
 
 Timestep    5
 
-ManagementAreas ./Input_Data/Management/managementAreas.tif
+ManagementAreas ./Input_Data/Management/managementAreas_BAU-CCA.tif
 Stands      	./Input_Data/Management/standMap.tif
 
 
