@@ -4,6 +4,7 @@
 **Participants**: Marco Mina, Núria Aquilué, Matthew Duveneck, Marie-Josée Fortin, and Christian Messier. 
 **Funding**: Canada Research Chair in Forest Resilience to Global Change (*C. Messier, N. Aquilué, M. Mina*); Swiss National Science Foundation (Postdoc.Mobility fellowship, *M.Mina*)
 
+The project lasted from 2018 and concluded in 2021. Collaboration between participants is currently ongoing. 
 
 -----------  
 
@@ -32,4 +33,6 @@ The study area is located in the administrative region of the Centre-du-Québec.
 
 ![](figures/cdq_landscape.jpg)
 
-Repository maintained by **Marco Mina**  `marco.mina[at]eurac.edu`
+Repository maintained by **Marco Mina**, now at Eurac Research - Institute for Alpine Environment (Italy)  
+Website `https://www.marco-mina.com/`
+Email. 	`marco.mina[at]eurac.edu`
