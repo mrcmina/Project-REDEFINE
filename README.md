@@ -19,7 +19,6 @@ This repository contains
  - LANDIS-II/PnET-Succession input files and documentation for running the model in the Centre-du-Quebec
  - Installers of LANDIS-II and its extension used in studies and as supporting dato to published papers
  - Tools and R scripts to build and analyze forest landscapes as a functional complex network
- - Scripts and data to share
 
 -----------
 
