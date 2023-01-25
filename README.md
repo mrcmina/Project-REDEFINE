@@ -1,8 +1,8 @@
 # REDEFiNE - REsilience Diversity landscapE Forest NEtwork 
 
-**Project Aim**: "Combine dynamic landscape models with network theory for evaluating resilience to global changes in fragmented forested landscapes".
-**Participants**: Marco Mina, Núria Aquilué, Matthew Duveneck, Marie-Josée Fortin, and Christian Messier. 
-**Funding**: Canada Research Chair in Forest Resilience to Global Change (*C. Messier, N. Aquilué, M. Mina*); Swiss National Science Foundation (Postdoc.Mobility fellowship, *M.Mina*)
+**Project Aim**: "Combine dynamic landscape models with network theory for evaluating resilience to global changes in fragmented forested landscapes".  
+**Participants**: Marco Mina, Núria Aquilué, Matthew Duveneck, Marie-Josée Fortin, and Christian Messier.  
+**Funding**: Canada Research Chair in Forest Resilience to Global Change (*C. Messier, N. Aquilué, M. Mina*); Swiss National Science Foundation (Postdoc.Mobility fellowship, *M.Mina*)  
 
 The project lasted from 2018 and concluded in 2021. Collaboration between participants is currently ongoing. 
 
