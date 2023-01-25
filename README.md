@@ -33,4 +33,4 @@ The study area is located in the administrative region of the Centre-du-Québec.
 
 ![](figures/cdq_landscape.jpg)
 
-Repository maintained by [Marco Mina](https://www.marco-mina.com/)**, now at Eurac Research - Institute for Alpine Environment (Italy)  
+Repository maintained by [Marco Mina](https://www.marco-mina.com/), now at [Eurac Research](https://www.eurac.edu/en) - Institute for Alpine Environment, Italy
